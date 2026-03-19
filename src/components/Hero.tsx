@@ -6,7 +6,7 @@ export default function Hero() {
       <div style={{ position: "absolute", inset: "0", background: "linear-gradient(135deg, rgba(10,20,40,0.98) 0%, rgba(27,79,138,0.55) 55%, rgba(10,20,40,0.92) 100%)", zIndex: 0 }} />
       <div style={{ position: "absolute", right: "-100px", top: "50%", transform: "translateY(-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(249,212,35,0.12) 0%, rgba(245,166,35,0.08) 40%, transparent 70%)", filter: "blur(40px)", zIndex: 0 }} />
 
-      <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "780px", padding: "120px 24px 80px", boxSizing: "border-box" }}
+      <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "780px", padding: "120px 24px 80px", boxSizing: "border-box", marginLeft: "0" }}
         className="hero-content"
       >
         {/* Badge */}

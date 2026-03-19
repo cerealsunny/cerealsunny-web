@@ -21,41 +21,62 @@ const recipes = [
 
 export default function Recipes() {
   const trackRef = useRef<HTMLDivElement>(null);
+
   const scroll = (dir: "left" | "right") => {
     if (!trackRef.current) return;
-    trackRef.current.scrollBy({ left: dir === "right" ? trackRef.current.offsetWidth : -trackRef.current.offsetWidth, behavior: "smooth" });
+    // Scroll by the width of 2 cards on mobile, 6 on desktop
+    const isMobile = window.innerWidth < 768;
+    const cardWidth = isMobile ? window.innerWidth * 0.75 : trackRef.current.offsetWidth / 6;
+    const scrollAmount = isMobile ? cardWidth * 2 : trackRef.current.offsetWidth;
+    trackRef.current.scrollBy({ left: dir === "right" ? scrollAmount : -scrollAmount, behavior: "smooth" });
   };
 
   return (
-    <section style={{ width: "100%", background: "#F9FAFB", padding: "40px 0 60px" }}>
-      <div style={{ maxWidth: "1800px", margin: "0 auto", padding: "0 48px" }}>
-        <div style={{ textAlign: "center", marginBottom: "36px" }}>
+    <section style={{ width: "100%", background: "#F9FAFB", padding: "40px 0 60px", overflow: "hidden" }}>
+      <div style={{ maxWidth: "1800px", margin: "0 auto", padding: "0 24px" }}>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <span style={{ display: "inline-block", background: "#1B4F8A", color: "#fff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", padding: "5px 12px", borderRadius: "4px", marginBottom: "10px" }}>Recetas</span>
           <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "900", color: "#111827", margin: "0 0 8px 0" }}>Ideas para tus Clientes</h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Recetas simples y deliciosas para impulsar las ventas.</p>
         </div>
+
+        {/* Carousel */}
         <div style={{ position: "relative" }}>
-          <button onClick={() => scroll("left")} style={{ position: "absolute", left: "-20px", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: "40px", height: "40px", borderRadius: "50%", background: "#fff", border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.12)", cursor: "pointer", fontSize: "20px", color: "#1B4F8A" }}>‹</button>
-          <div ref={trackRef} style={{ display: "grid", gridTemplateColumns: "repeat(15, calc(16.666% - 16px))", gap: "19px", overflowX: "hidden", scrollBehavior: "smooth", padding: "8px 2px 12px" }}>
+          <button onClick={() => scroll("left")} style={{ position: "absolute", left: "-12px", top: "40%", transform: "translateY(-50%)", zIndex: 10, width: "36px", height: "36px", borderRadius: "50%", background: "#fff", border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.12)", cursor: "pointer", fontSize: "18px", color: "#1B4F8A", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>
+
+          <div ref={trackRef} style={{ display: "flex", gap: "16px", overflowX: "hidden", scrollBehavior: "smooth", padding: "8px 4px 12px" }}>
             {recipes.map((r) => (
-              <div key={r.name} style={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: "10px", overflow: "hidden", transition: "box-shadow 0.2s" }}
+              <div key={r.name} style={{
+                background: "#fff",
+                border: "1px solid #E5E7EB",
+                borderRadius: "10px",
+                overflow: "hidden",
+                flexShrink: 0,
+                width: "calc(16.666% - 14px)",
+                minWidth: "160px",
+                transition: "box-shadow 0.2s",
+              }}
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)")}
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
-                <div style={{ height: "156px", background: r.bgColor, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "58px" }}>{r.emoji}</div>
-                <div style={{ padding: "17px" }}>
-                  <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "12px", fontWeight: "700", textTransform: "uppercase", padding: "4px 8px", borderRadius: "4px", marginBottom: "8px" }}>{r.category}</span>
-                  <h3 style={{ fontFamily: "Georgia, serif", fontSize: "17px", fontWeight: "700", color: "#111827", margin: "0 0 12px 0" }}>{r.name}</h3>
-                  <div style={{ display: "flex", gap: "12px" }}>
-                    <span style={{ fontSize: "13px", color: "#6B7280" }}>⏱ {r.time}</span>
-                    <span style={{ fontSize: "13px", color: "#6B7280" }}>👥 {r.servings}</span>
+                <div style={{ height: "130px", background: r.bgColor, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "48px" }}>{r.emoji}</div>
+                <div style={{ padding: "14px" }}>
+                  <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "10px", fontWeight: "700", textTransform: "uppercase", padding: "3px 7px", borderRadius: "4px", marginBottom: "6px" }}>{r.category}</span>
+                  <h3 style={{ fontFamily: "Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "12px", color: "#6B7280" }}>⏱ {r.time}</span>
+                    <span style={{ fontSize: "12px", color: "#6B7280" }}>👥 {r.servings}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={() => scroll("right")} style={{ position: "absolute", right: "-20px", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: "40px", height: "40px", borderRadius: "50%", background: "#fff", border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.12)", cursor: "pointer", fontSize: "20px", color: "#1B4F8A" }}>›</button>
+
+          <button onClick={() => scroll("right")} style={{ position: "absolute", right: "-12px", top: "40%", transform: "translateY(-50%)", zIndex: 10, width: "36px", height: "36px", borderRadius: "50%", background: "#fff", border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.12)", cursor: "pointer", fontSize: "18px", color: "#1B4F8A", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>
         </div>
+
       </div>
     </section>
   );
