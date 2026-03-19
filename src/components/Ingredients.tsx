@@ -33,9 +33,25 @@ export default function Ingredients() {
     <section style={{ width: "100%", background: "#ffffff", padding: "60px 0 40px" }}>
       <div style={{ maxWidth: "1800px", margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <span style={{ display: "inline-block", background: "#F5A623", color: "#1B4F8A", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", padding: "5px 12px", borderRadius: "4px", marginBottom: "10px" }}>Ingredientes</span>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "900", color: "#111827", margin: "0 0 8px 0" }}>Calidad desde el Origen</h2>
-          <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Seleccionamos cada ingrediente con criterios estrictos de calidad.</p>
+          <a href="/ingredientes" style={{
+            display: "inline-block",
+            background: "#1B4F8A",
+            color: "#ffffff",
+            fontSize: "13px",
+            fontWeight: "700",
+            textTransform: "uppercase",
+            letterSpacing: "0.14em",
+            padding: "12px 32px",
+            borderRadius: "6px",
+            marginBottom: "20px",
+            textDecoration: "none",
+            border: "2px solid #1B4F8A",
+            transition: "background 0.2s, color 0.2s",
+          }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#1B4F8A"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1B4F8A"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+          >Ingredientes</a>
+          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#111827", margin: "0", letterSpacing: "-0.01em" }}>Calidad desde el Origen</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", width: "100%" }}>
           {ingredients.map((item) => <IngredientCard key={item.name} item={item} />)}

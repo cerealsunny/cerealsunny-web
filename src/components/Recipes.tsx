@@ -37,9 +37,11 @@ export default function Recipes() {
 
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <span style={{ display: "inline-block", background: "#1B4F8A", color: "#fff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", padding: "5px 12px", borderRadius: "4px", marginBottom: "10px" }}>Recetas</span>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "900", color: "#111827", margin: "0 0 8px 0" }}>Ideas para tus Clientes</h2>
-          <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Recetas simples y deliciosas para impulsar las ventas.</p>
+          <a href="/recetas" style={{ display: "inline-block", background: "#1B4F8A", color: "#fff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", padding: "8px 20px", borderRadius: "6px", marginBottom: "16px", textDecoration: "none", transition: "background 0.2s" }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#F5A623")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#1B4F8A")}
+          >Recetas</a>
+          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#111827", margin: "0", letterSpacing: "-0.01em" }}>Recetas fáciles de preparar</h2>
         </div>
 
         {/* Carousel */}
