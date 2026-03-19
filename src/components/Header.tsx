@@ -51,7 +51,7 @@ export default function Header() {
 
       {/* Top info bar — desktop only */}
       {!scrolled && !isMobile && (
-        <div style={{ background: "#122d56", padding: "6px 32px", display: "flex", justifyContent: "flex-end", gap: "16px" }}>
+        <div style={{ background: "#2a7d8c", padding: "6px 32px", display: "flex", justifyContent: "flex-end", gap: "16px" }}>
           <span style={{ color: "#93c5fd", fontSize: "12px" }}>Distribuidores: +58 212 555-0100</span>
           <span style={{ color: "#4b6ea8" }}>|</span>
           <span style={{ color: "#93c5fd", fontSize: "12px" }}>info@cerealsunny.com</span>
@@ -60,7 +60,7 @@ export default function Header() {
 
       {/* Main nav */}
       <div style={{
-        background: scrolled ? "#0e2e56" : "#1B4F8A",
+        background: scrolled ? "#2a7d8c" : "#39a4b4",
         borderBottom: "3px solid #F5A623",
         padding: isMobile ? "0 16px" : "0 32px",
         height: isMobile ? "64px" : scrolled ? "72px" : "88px",
@@ -90,8 +90,9 @@ export default function Header() {
             {navLinks.map((link, index) => (
               <div key={link.href} style={{ display: "flex", alignItems: "center" }}>
                 <Link href={link.href} style={{
-                  color: "#ffffff", fontSize: "18px", fontWeight: "500", textDecoration: "none",
-                  letterSpacing: "0.02em", borderBottom: "2px solid transparent", paddingBottom: "2px",
+                  color: "#ffffff", fontSize: "18px", fontWeight: "700", textDecoration: "none",
+                  fontFamily: "var(--font-barlow), 'Barlow Condensed', Arial, sans-serif",
+                  letterSpacing: "0.08em", textTransform: "uppercase", borderBottom: "2px solid transparent", paddingBottom: "2px",
                   padding: "0 24px", transition: "color 0.2s, border-color 0.2s",
                 }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623"; }}
@@ -160,7 +161,7 @@ export default function Header() {
 
       {/* Mobile dropdown menu */}
       {isMobile && menuOpen && (
-        <div style={{ background: "#0e2e56", borderBottom: "1px solid rgba(245,166,35,0.3)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: "0" }}>
+        <div style={{ background: "#2a7d8c", borderBottom: "1px solid rgba(245,166,35,0.3)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: "0" }}>
           {navLinks.map((link, index) => (
             <div key={link.href}>
               <Link href={link.href} onClick={() => setMenuOpen(false)} style={{

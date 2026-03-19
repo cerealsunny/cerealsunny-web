@@ -16,8 +16,25 @@ export default function Products() {
     <section style={{ width: "100%", background: "#ffffff", padding: "60px 0" }}>
       <div style={{ maxWidth: "1800px", margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <span style={{ display: "inline-block", background: "#F5A623", color: "#1B4F8A", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", padding: "5px 12px", borderRadius: "4px", marginBottom: "10px" }}>Catálogo</span>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "900", color: "#111827", margin: "0 0 8px 0" }}>Nuestra Línea de Cereales</h2>
+          <a href="/productos" style={{
+            display: "inline-block",
+            background: "#39a4b4",
+            color: "#ffffff",
+            fontSize: "13px",
+            fontWeight: "700",
+            textTransform: "uppercase",
+            letterSpacing: "0.14em",
+            padding: "12px 32px",
+            borderRadius: "6px",
+            marginBottom: "20px",
+            textDecoration: "none",
+            border: "2px solid #39a4b4",
+            transition: "background 0.2s, color 0.2s, border-color 0.2s",
+          }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+          >Catálogo</a>
+          <h2 style={{ fontFamily: "Georgia, serif", fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.5), 2px 2px 8px rgba(57,164,180,0.25), 0 0 20px rgba(57,164,180,0.1)" }}>Nuestra Línea de Cereales</h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Amplio catálogo para cubrir todos los segmentos del mercado.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px" }}>

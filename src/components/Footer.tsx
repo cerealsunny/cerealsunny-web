@@ -10,7 +10,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ background: "#1B4F8A", width: "100%" }}>
+    <footer style={{ background: "#39a4b4", width: "100%" }}>
 
       {/* Main content */}
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "56px 24px 40px" }}>

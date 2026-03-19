@@ -35,7 +35,7 @@ export default function Ingredients() {
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <a href="/ingredientes" style={{
             display: "inline-block",
-            background: "#1B4F8A",
+            background: "#39a4b4",
             color: "#ffffff",
             fontSize: "13px",
             fontWeight: "700",
@@ -45,13 +45,13 @@ export default function Ingredients() {
             borderRadius: "6px",
             marginBottom: "20px",
             textDecoration: "none",
-            border: "2px solid #1B4F8A",
-            transition: "background 0.2s, color 0.2s",
+            border: "2px solid #39a4b4",
+            transition: "background 0.2s, color 0.2s, border-color 0.2s",
           }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#1B4F8A"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1B4F8A"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Ingredientes</a>
-          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#111827", margin: "0", letterSpacing: "-0.01em" }}>Calidad desde el Origen</h2>
+          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.5), 2px 2px 8px rgba(57,164,180,0.25), 0 0 20px rgba(57,164,180,0.1)" }}>Calidad desde el Origen</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", width: "100%" }}>
           {ingredients.map((item) => <IngredientCard key={item.name} item={item} />)}
