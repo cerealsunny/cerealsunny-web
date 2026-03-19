@@ -23,17 +23,14 @@ const SunLogo = ({ size = 44 }: { size?: number }) => (
       <line x1="11" y1="33" x2="7.5" y2="36.5" />
     </g>
     <circle cx="22" cy="22" r="12" fill="url(#sunGradHeader)" />
-    <circle cx="22" cy="22" r="12" fill="none" stroke="#F5A623" strokeWidth="1" />
   </svg>
 );
 
 const navLinks = [
-  { label: "Inicio", href: "/" },
-  { label: "Productos", href: "/productos" },
-  { label: "Ingredientes", href: "/#ingredientes" },
   { label: "Recetas", href: "/#recetas" },
-  { label: "Nosotros", href: "/nosotros" },
-  { label: "Contacto", href: "/contacto" },
+  { label: "Productos", href: "/productos" },
+  { label: "Sobre Sunny", href: "/nosotros" },
+  { label: "Salud y Nutrición", href: "/#nutricion" },
 ];
 
 export default function Header() {
@@ -47,119 +44,185 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50">
-      {/* Top info bar — hidden when scrolled */}
+    <header style={{ width: "100%", position: "fixed", top: 0, left: 0, zIndex: 50 }}>
+
+      {/* Top info bar */}
       {!scrolled && (
-        <div className="bg-[#122d56] px-6 py-1.5 flex justify-end items-center gap-4">
-          <span className="text-[#93c5fd] text-xs font-medium">
-            Distribuidores: +58 212 555-0100
-          </span>
-          <span className="text-[#4b6ea8]">|</span>
-          <span className="text-[#93c5fd] text-xs">info@cerealsunny.com</span>
+        <div style={{
+          background: "#122d56",
+          padding: "6px 32px",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          gap: "16px",
+        }}>
+          <span style={{ color: "#93c5fd", fontSize: "12px" }}>Distribuidores: +58 212 555-0100</span>
+          <span style={{ color: "#4b6ea8" }}>|</span>
+          <span style={{ color: "#93c5fd", fontSize: "12px" }}>info@cerealsunny.com</span>
         </div>
       )}
 
       {/* Main nav */}
-      <nav
-        className={`
-          bg-[#1B4F8A] border-b-[3px] border-[#F5A623] px-6 lg:px-8
-          flex items-center justify-between
-          transition-all duration-300
-          ${scrolled ? "h-[62px] shadow-[0_2px_16px_rgba(0,0,0,0.35)] bg-[#0e2e56]" : "h-[70px]"}
-        `}
-      >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <SunLogo size={scrolled ? 36 : 44} />
-          <div className="leading-none">
-            <div
-              className="font-serif font-black text-white tracking-wide"
-              style={{ fontSize: scrolled ? "19px" : "22px", fontFamily: "Georgia, serif" }}
-            >
-              SUNNY
-              <sup className="text-[#F5A623]" style={{ fontSize: "8px", verticalAlign: "super" }}>
-                ®
-              </sup>
+      <div style={{
+        background: scrolled ? "#0e2e56" : "#1B4F8A",
+        borderBottom: "3px solid #F5A623",
+        padding: "0 32px",
+        height: scrolled ? "72px" : "88px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
+        transition: "all 0.3s ease",
+      }}>
+
+        {/* LEFT — nav links */}
+        <nav style={{ display: "flex", alignItems: "center", gap: "0px" }}>
+          {navLinks.map((link, index) => (
+            <div key={link.href} style={{ display: "flex", alignItems: "center" }}>
+              <Link
+                href={link.href}
+                style={{
+                  color: "#ffffff",
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  textDecoration: "none",
+                  letterSpacing: "0.02em",
+                  borderBottom: "2px solid transparent",
+                  paddingBottom: "2px",
+                  padding: "0 24px",
+                  transition: "color 0.2s, border-color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623";
+                  (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff";
+                  (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "transparent";
+                }}
+              >
+                {link.label}
+              </Link>
+              {index < navLinks.length - 1 && (
+                <span style={{
+                  color: "rgba(245,166,35,0.4)",
+                  fontSize: "18px",
+                  fontWeight: "300",
+                  userSelect: "none",
+                }}>|</span>
+              )}
             </div>
-            {!scrolled && (
-              <div className="text-[9px] tracking-[0.2em] text-[#93c5fd] font-medium uppercase mt-0.5">
-                Cereal
-              </div>
-            )}
+          ))}
+        </nav>
+
+        {/* CENTER — Logo */}
+        <Link href="/" style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textDecoration: "none",
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}>
+          {/*
+            Fase 3 — reemplazar SunLogo con imagen real:
+            <Image src="/logo-sunny.png" alt="Cereal Sunny" width={120} height={60} priority />
+          */}
+          <SunLogo size={scrolled ? 36 : 46} />
+          <div style={{
+            fontFamily: "Georgia, serif",
+            fontWeight: "900",
+            fontSize: scrolled ? "16px" : "20px",
+            color: "#ffffff",
+            letterSpacing: "0.06em",
+            lineHeight: "1",
+            marginTop: "2px",
+          }}>
+            SUNNY<sup style={{ fontSize: "8px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
           </div>
+          {!scrolled && (
+            <div style={{
+              fontSize: "8px",
+              letterSpacing: "0.25em",
+              color: "#93c5fd",
+              textTransform: "uppercase",
+              marginTop: "1px",
+            }}>
+              Cereal
+            </div>
+          )}
         </Link>
 
-        {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-white text-sm font-medium tracking-wide
-                border-b-2 border-transparent pb-0.5
-                hover:border-[#F5A623] hover:text-[#F5A623]
-                transition-colors duration-200"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        {/* RIGHT — search + phone */}
+        <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
 
-        {/* Right: phone + CTA */}
-        <div className="hidden lg:flex items-center gap-5 flex-shrink-0">
-          <div className="text-right">
-            <div className="text-[11px] text-[#93c5fd] font-medium">Distribuidores</div>
-            <div className="text-[13px] text-white font-semibold flex items-center gap-1.5">
-              <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
-              +58 212 555-0100
-            </div>
-          </div>
-          <Link
-            href="/contacto"
-            className="bg-[#F5A623] text-[#1B4F8A] font-bold text-xs uppercase
-              tracking-widest px-5 py-2.5 rounded
-              hover:bg-[#F9D423] transition-colors duration-200"
+          {/* Search icon */}
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "4px",
+            cursor: "pointer",
+            opacity: "0.85",
+            transition: "opacity 0.2s",
+          }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.85")}
           >
-            Cotizar
-          </Link>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+            <span style={{ fontSize: "10px", color: "#93c5fd", letterSpacing: "0.05em" }}>Búsqueda</span>
+          </div>
+
+          {/* Phone */}
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "4px",
+            cursor: "pointer",
+            opacity: "0.85",
+            transition: "opacity 0.2s",
+          }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.85")}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span style={{ fontSize: "10px", color: "#93c5fd", letterSpacing: "0.05em" }}>Contáctanos</span>
+          </div>
+
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menú"
-        >
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
-      </nav>
+      </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#0e2e56] border-b border-[#1B4F8A] px-6 py-4 flex flex-col gap-4">
+        <div style={{
+          background: "#0e2e56",
+          borderBottom: "1px solid #1B4F8A",
+          padding: "16px 24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-white text-sm font-medium hover:text-[#F5A623] transition-colors"
+              style={{ color: "#ffffff", fontSize: "15px", fontWeight: "500", textDecoration: "none" }}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contacto"
-            onClick={() => setMenuOpen(false)}
-            className="bg-[#F5A623] text-[#1B4F8A] font-bold text-xs uppercase
-              tracking-widest px-5 py-2.5 rounded text-center
-              hover:bg-[#F9D423] transition-colors"
-          >
-            Cotizar
-          </Link>
         </div>
       )}
+
     </header>
   );
 }
