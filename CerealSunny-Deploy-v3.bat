@@ -1,5 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
+set TOKEN=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
+set REPO=https://%TOKEN%@github.com/cerealsunny/cerealsunny-web.git
 set DIR=C:\Users\dvera\cerealsunny-web
 cd /d %DIR%
 
@@ -50,7 +52,7 @@ git add .
 echo  Creando commit...
 git commit -m "!MSG!"
 echo  Subiendo a GitHub...
-git push origin main
+git push %REPO% main
 echo.
 if %ERRORLEVEL%==0 (
     echo  [OK] Cambios subidos exitosamente.
