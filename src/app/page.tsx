@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Ingredients from "@/components/Ingredients";
 import Recipes from "@/components/Recipes";
 import Products from "@/components/Products";
+import ProcessComparison from "@/components/ProcessComparison";
 import NutritionBanner from "@/components/NutritionBanner";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,9 @@ export default function HomePage() {
       </section>
       <section id="productos">
         <Products />
+      </section>
+      <section id="proceso">
+        <ProcessComparison />
       </section>
       <NutritionBanner />
       <Footer />

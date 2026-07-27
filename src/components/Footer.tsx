@@ -55,7 +55,7 @@ export default function Footer() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {[
-                { icon: "📞", text: "+58 212 555-0100" },
+                { icon: "📞", text: "+58 212-953.9897" },
                 { icon: "✉️", text: "info@cerealsunny.com" },
                 { icon: "📍", text: "Caracas, Venezuela" },
               ].map((item) => (

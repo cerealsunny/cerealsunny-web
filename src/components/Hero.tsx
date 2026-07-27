@@ -126,7 +126,7 @@ export default function Hero() {
         {/* Stats */}
         <div style={{ display: "flex", gap: "clamp(24px, 5vw, 48px)", flexWrap: "wrap" }}>
           {[
-            { value: "20+", label: "Años de experiencia" },
+            { value: "1", label: "Año en el mercado venezolano" },
             { value: "50+", label: "Productos en catálogo" },
             { value: "100%", label: "Ingredientes naturales" },
           ].map((stat) => (

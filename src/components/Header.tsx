@@ -25,6 +25,7 @@ const SunLogo = ({ size = 44 }: { size?: number }) => (
 const navLinks = [
   { label: "Recetas", href: "/#recetas" },
   { label: "Productos", href: "/productos" },
+  { label: "Nuestro Proceso", href: "/#proceso" },
   { label: "Sobre Sunny", href: "/nosotros" },
   { label: "Salud y Nutrición", href: "/#nutricion" },
 ];
@@ -52,7 +53,7 @@ export default function Header() {
       {/* Top info bar — desktop only */}
       {!scrolled && !isMobile && (
         <div style={{ background: "#2a7d8c", padding: "6px 32px", display: "flex", justifyContent: "flex-end", gap: "16px" }}>
-          <span style={{ color: "#93c5fd", fontSize: "12px" }}>Distribuidores: +58 212 555-0100</span>
+          <span style={{ color: "#93c5fd", fontSize: "12px" }}>Distribuidores: +58 212-953.9897</span>
           <span style={{ color: "#4b6ea8" }}>|</span>
           <span style={{ color: "#93c5fd", fontSize: "12px" }}>info@cerealsunny.com</span>
         </div>
@@ -177,8 +178,8 @@ export default function Header() {
             </div>
           ))}
           <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid rgba(245,166,35,0.2)" }}>
-            <a href="tel:+582125550100" style={{ color: "#93c5fd", fontSize: "14px", textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
-              📞 +58 212 555-0100
+            <a href="tel:+582129539897" style={{ color: "#93c5fd", fontSize: "14px", textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
+              📞 +58 212-953.9897
             </a>
           </div>
         </div>
