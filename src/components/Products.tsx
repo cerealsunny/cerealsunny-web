@@ -1,14 +1,9 @@
 "use client";
 
 const products = [
-  { category: "Granola", name: "Granola Clásica", subtitle: "Avena, miel y nueces", color: "#92400e", emoji: "🌾" },
-  { category: "Copos", name: "Copos de Maíz", subtitle: "Tostado natural, sin azúcar", color: "#1B4F8A", emoji: "🌽" },
-  { category: "Muesli", name: "Muesli Tropical", subtitle: "Frutas y semillas selectas", color: "#166534", emoji: "🍍" },
-  { category: "Integral", name: "Trigo Integral", subtitle: "Alto contenido en fibra", color: "#7c3aed", emoji: "🌿" },
-  { category: "Infantil", name: "Sunny Kids", subtitle: "Vitaminas A, C y D", color: "#dc2626", emoji: "⭐" },
-  { category: "Premium", name: "Granola Premium", subtitle: "Cacao, arándanos y chía", color: "#0e7490", emoji: "🫐" },
-  { category: "Sin Gluten", name: "Sin Gluten", subtitle: "Certificado libre de gluten", color: "#166534", emoji: "✅" },
-  { category: "Proteico", name: "High Protein", subtitle: "20g de proteína por porción", color: "#1B4F8A", emoji: "💪" },
+  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", emoji: "🌽" },
+  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", emoji: "✨" },
+  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", emoji: "🍫" },
 ];
 
 export default function Products() {
@@ -35,7 +30,7 @@ export default function Products() {
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Catálogo</a>
           <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.5), 2px 2px 8px rgba(57,164,180,0.25), 0 0 20px rgba(57,164,180,0.1)" }}>Nuestra Línea de Cereales</h2>
-          <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Amplio catálogo para cubrir todos los segmentos del mercado.</p>
+          <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Hojuelas de maíz real, laminadas grano por grano — no masa moldeada.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px" }}>
           {products.map((p) => (
