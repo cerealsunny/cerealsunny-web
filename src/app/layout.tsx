@@ -12,6 +12,7 @@ const barlow = Barlow_Condensed({
   weight: ["600", "700"],
   variable: "--font-barlow",
 });
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${playfair.variable} ${barlow.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

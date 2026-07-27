@@ -4,7 +4,7 @@ export const metadata = {
 };
 
 const techs = [
-  { name: "Next.js 15", desc: "Framework React con App Router", icon: "▲" },
+  { name: "Next.js 16", desc: "Framework React con App Router", icon: "▲" },
   { name: "TypeScript", desc: "Tipado estático y seguro", icon: "TS" },
   { name: "Tailwind CSS", desc: "Estilos utilitarios modernos", icon: "🎨" },
   { name: "Sanity CMS", desc: "Gestión de contenido headless", icon: "📦" },
