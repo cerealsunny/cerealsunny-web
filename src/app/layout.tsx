@@ -16,8 +16,17 @@ const barlow = Barlow_Condensed({
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cerealsunny-web.vercel.app"),
   title: "Cereal Sunny",
   description: "Fabricante de cereales de alta calidad para distribuidores.",
+  openGraph: {
+    title: "Cereal Sunny — Fabricante de Cereales para Distribuidores",
+    description:
+      "Cereal Sunny: fabricante venezolano de cereales de alta calidad. Venta exclusiva a distribuidores mayoristas.",
+    type: "website",
+    locale: "es_VE",
+    siteName: "Cereal Sunny",
+  },
 };
 
 export default function RootLayout({

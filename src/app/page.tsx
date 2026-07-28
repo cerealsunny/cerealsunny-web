@@ -30,7 +30,9 @@ export default function HomePage() {
       <section id="proceso">
         <ProcessComparison />
       </section>
-      <NutritionBanner />
+      <section id="nutricion">
+        <NutritionBanner />
+      </section>
       <Footer />
     </main>
   );

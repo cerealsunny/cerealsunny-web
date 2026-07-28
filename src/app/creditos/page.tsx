@@ -155,21 +155,8 @@ export default function CreditosPage() {
               }}>
                 David Vera
               </h2>
-              <div style={{ fontSize: "13px", color: "#93c5fd", marginBottom: "8px" }}>
-                Desarrollador Principal · Centerium · Venezuela
-              </div>
-              <div style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background: "rgba(245,166,35,0.15)",
-                border: "1px solid rgba(245,166,35,0.3)",
-                borderRadius: "4px",
-                padding: "4px 10px",
-              }}>
-                <span style={{ fontSize: "11px", color: "#F5A623", fontWeight: "600" }}>
-                  ✉ dverait@centerium.info
-                </span>
+              <div style={{ fontSize: "13px", color: "#93c5fd" }}>
+                Desarrollador Principal · Venezuela
               </div>
             </div>
           </div>
@@ -189,43 +176,6 @@ export default function CreditosPage() {
             </div>
             <div style={{ fontSize: "12px", color: "#93c5fd", marginTop: "2px" }}>
               Venezuela 🇻🇪
-            </div>
-          </div>
-        </div>
-
-        {/* Centerium badge */}
-        <div style={{
-          background: "#0e2e56",
-          border: "1px solid rgba(245,166,35,0.2)",
-          borderRadius: "12px",
-          padding: "24px 36px",
-          marginBottom: "24px",
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-        }}>
-          <div style={{
-            width: "44px",
-            height: "44px",
-            borderRadius: "8px",
-            background: "rgba(245,166,35,0.15)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "20px",
-            fontWeight: "900",
-            color: "#F5A623",
-            fontFamily: "Georgia, serif",
-            flexShrink: 0,
-          }}>
-            C
-          </div>
-          <div>
-            <div style={{ fontSize: "15px", fontWeight: "700", color: "#ffffff", marginBottom: "2px" }}>
-              Centerium
-            </div>
-            <div style={{ fontSize: "13px", color: "#93c5fd" }}>
-              Sistema Integral de Gestión · Venezuela · centerium.info
             </div>
           </div>
         </div>

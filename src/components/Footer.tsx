@@ -4,11 +4,7 @@ import { IconPhone, IconMail, IconPin } from "./Icons";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Empresa: [{ label: "Nosotros", href: "/nosotros" }],
-  Productos: [
-    { label: "Sunny Flakes", href: "/productos" },
-    { label: "Sunny Sugar", href: "/productos" },
-    { label: "Sunny Choco Flakes", href: "/productos" },
-  ],
+  Productos: [{ label: "Ver Catálogo", href: "/productos" }],
   Distribuidores: [{ label: "Contacto", href: "/contacto" }],
 };
 
@@ -131,14 +127,6 @@ export default function Footer() {
           >
             <span>✦</span> Créditos de Desarrollo
           </a>
-          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-            {["Política de Privacidad", "Términos de Uso"].map((item) => (
-              <a key={item} href="#" style={{ fontSize: "12px", color: "#93c5fd", textDecoration: "none" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5A623")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#93c5fd")}
-              >{item}</a>
-            ))}
-          </div>
         </div>
       </div>
 
