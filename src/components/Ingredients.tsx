@@ -1,12 +1,10 @@
 "use client";
 
 const ingredients = [
-  { name: "Avena Integral", badge: "100% Natural", badgeColor: "#166534", description: "Avena de grano entero seleccionada, rica en fibra y minerales esenciales.", icon: "🌾", bg: "#e8f5e9" },
-  { name: "Miel de Abejas", badge: "Sin Aditivos", badgeColor: "#1B4F8A", description: "Endulzante natural puro que aporta energía y antioxidantes.", icon: "🍯", bg: "#fff8e1" },
-  { name: "Frutas Deshidratadas", badge: "Premium", badgeColor: "#92400e", description: "Pasas, arándanos y mango sin azúcares añadidos.", icon: "🍇", bg: "#fce4ec" },
-  { name: "Semillas & Nueces", badge: "Alto Valor", badgeColor: "#166534", description: "Almendras y chía para enriquecer el perfil nutricional.", icon: "🥜", bg: "#f3e5f5" },
-  { name: "Maíz Tostado", badge: "Sin Gluten", badgeColor: "#1B4F8A", description: "Tostado al punto exacto para lograr la crocancia perfecta.", icon: "🌽", bg: "#fffde7" },
-  { name: "Vitaminas & Minerales", badge: "Enriquecido", badgeColor: "#7c3aed", description: "Vitaminas A, C, D y minerales según estándares internacionales.", icon: "💊", bg: "#e8eaf6" },
+  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", icon: "🌽", bg: "#fffde7" },
+  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", icon: "🍬", bg: "#fff8e1" },
+  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", icon: "🍫", bg: "#f3e5f5" },
+  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", icon: "🌾", bg: "#e8f5e9" },
 ];
 
 function IngredientCard({ item }: { item: typeof ingredients[0] }) {

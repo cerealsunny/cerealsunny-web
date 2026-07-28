@@ -2,21 +2,11 @@
 import { useRef } from "react";
 
 const recipes = [
-  { name: "Bowl Energético", category: "Desayuno", time: "5 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", emoji: "🥣" },
-  { name: "Granola con Yogur", category: "Merienda", time: "3 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", emoji: "🍦" },
-  { name: "Barras de Cereal", category: "Snack", time: "20 min", servings: "8 barras", bgColor: "#FFF7ED", badgeColor: "#92400e", emoji: "🍫" },
-  { name: "Smoothie Tropical", category: "Bebida", time: "5 min", servings: "1 porción", bgColor: "#F5F3FF", badgeColor: "#7c3aed", emoji: "🥤" },
-  { name: "Pancakes de Avena", category: "Desayuno", time: "15 min", servings: "4 porciones", bgColor: "#FFF1F2", badgeColor: "#be123c", emoji: "🥞" },
-  { name: "Ensalada de Frutas", category: "Postre", time: "10 min", servings: "2 porciones", bgColor: "#ECFDF5", badgeColor: "#166534", emoji: "🍓" },
-  { name: "Avena Caliente", category: "Desayuno", time: "8 min", servings: "1 porción", bgColor: "#FFF7ED", badgeColor: "#92400e", emoji: "🍲" },
-  { name: "Muffins de Granola", category: "Snack", time: "25 min", servings: "6 muffins", bgColor: "#FFF1F2", badgeColor: "#be123c", emoji: "🧁" },
-  { name: "Batido de Proteínas", category: "Bebida", time: "5 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", emoji: "🥛" },
-  { name: "Parfait de Cereal", category: "Postre", time: "10 min", servings: "2 porciones", bgColor: "#F5F3FF", badgeColor: "#7c3aed", emoji: "🍧" },
-  { name: "Tostadas con Granola", category: "Desayuno", time: "7 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", emoji: "🍞" },
-  { name: "Cookies de Avena", category: "Postre", time: "30 min", servings: "12 cookies", bgColor: "#FFF7ED", badgeColor: "#92400e", emoji: "🍪" },
-  { name: "Wrap de Frutas", category: "Merienda", time: "8 min", servings: "1 porción", bgColor: "#ECFDF5", badgeColor: "#166534", emoji: "🌯" },
   { name: "Cereal con Leche", category: "Desayuno", time: "2 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", emoji: "🥣" },
-  { name: "Helado de Granola", category: "Postre", time: "15 min", servings: "4 porciones", bgColor: "#F5F3FF", badgeColor: "#7c3aed", emoji: "🍨" },
+  { name: "Pollo Crocante con Hojuelas de Maíz", category: "Almuerzo", time: "35 min", servings: "4 porciones", bgColor: "#FFF7ED", badgeColor: "#92400e", emoji: "🍗" },
+  { name: "Barritas Crocantes de Chocolate", category: "Postre", time: "20 min", servings: "8 barras", bgColor: "#FFF1F2", badgeColor: "#be123c", emoji: "🍫" },
+  { name: "Nidos de Chocolate", category: "Postre", time: "15 min", servings: "10 nidos", bgColor: "#F5F3FF", badgeColor: "#7c3aed", emoji: "🍬" },
+  { name: "Parfait de Yogur con Hojuelas", category: "Merienda", time: "8 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", emoji: "🍧" },
 ];
 
 export default function Recipes() {

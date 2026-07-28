@@ -73,7 +73,7 @@ export default function Hero() {
           display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "4px", padding: "88px 24px 24px",
           opacity: animating ? 0 : 1, transition: "opacity 0.5s",
         }}>
-          {["🌾", "🍯", "🌽", "🥜"].map((emoji, i) => (
+          {["🌽", "🥣", "🍫", "🌾"].map((emoji, i) => (
             <div key={i} style={{ background: ["#1B4F8A", "#166534", "#92400e", "#7c3aed"][i] + "60", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "48px" }}>{emoji}</div>
           ))}
         </div>
@@ -104,8 +104,8 @@ export default function Hero() {
 
         {/* Description */}
         <p style={{ fontSize: "clamp(14px, 2.5vw, 17px)", color: "#93c5fd", lineHeight: "1.75", marginBottom: "36px", maxWidth: "520px" }}>
-          Fabricamos cereales con ingredientes naturales seleccionados.
-          Líneas completas para distribuidores mayoristas en toda la región.
+          Fabricamos hojuelas de maíz de alta calidad, listas para
+          distribuidores mayoristas en Venezuela.
         </p>
 
         {/* CTAs */}
@@ -127,8 +127,8 @@ export default function Hero() {
         <div style={{ display: "flex", gap: "clamp(24px, 5vw, 48px)", flexWrap: "wrap" }}>
           {[
             { value: "1", label: "Año en el mercado venezolano" },
-            { value: "50+", label: "Productos en catálogo" },
-            { value: "100%", label: "Ingredientes naturales" },
+            { value: "3", label: "Presentaciones, un solo proceso real" },
+            { value: "0g", label: "Grasas trans en toda la línea" },
           ].map((stat) => (
             <div key={stat.label}>
               <div style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: "900", color: slide.accent, lineHeight: "1", marginBottom: "6px" }}>{stat.value}</div>
