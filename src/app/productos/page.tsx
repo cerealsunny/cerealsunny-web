@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { IconCorn, IconSparkle, IconChocolateBar } from "@/components/Icons";
 
 export const metadata = {
   title: "Productos · Cereal Sunny",
@@ -11,7 +12,7 @@ const products = [
     name: "Sunny Flakes",
     tag: "Clásico",
     color: "#1B4F8A",
-    emoji: "🌽",
+    Icon: IconCorn,
     description:
       "Hojuelas de maíz tostado, doradas y crocantes. Cada grano de maíz se descascarilla y se parte en tres piezas reales de grano — cada una se convierte en una hojuela. Sin masa, sin moldes: el sabor clásico de siempre.",
   },
@@ -19,7 +20,7 @@ const products = [
     name: "Sunny Sugar",
     tag: "Dulce",
     color: "#F5A623",
-    emoji: "✨",
+    Icon: IconSparkle,
     description:
       "La misma hojuela de maíz real, glaseada con azúcar para un crunch dulce que nunca falla en el punto de venta.",
   },
@@ -27,7 +28,7 @@ const products = [
     name: "Sunny Choco Flakes",
     tag: "Chocolate",
     color: "#6b3f22",
-    emoji: "🍫",
+    Icon: IconChocolateBar,
     description:
       "Hojuelas de maíz real bañadas en chocolate, el antojo favorito de los más pequeños de la casa.",
   },
@@ -55,14 +56,35 @@ export default function ProductosPage() {
         </p>
       </section>
 
-      <section style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 24px 100px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
+      <section style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 24px 100px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
           {products.map((p) => (
-            <div key={p.name} style={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "32px 24px", textAlign: "left" }}>
-              <div style={{ width: "56px", height: "56px", borderRadius: "12px", background: p.color + "15", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", marginBottom: "18px" }}>{p.emoji}</div>
-              <span style={{ display: "inline-block", background: p.color + "18", color: p.color, fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", padding: "3px 8px", borderRadius: "4px", marginBottom: "10px" }}>{p.tag}</span>
-              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "20px", fontWeight: "700", color: "#111827", margin: "0 0 10px 0" }}>{p.name}</h3>
-              <p style={{ fontSize: "14px", color: "#6B7280", lineHeight: "1.7", margin: "0" }}>{p.description}</p>
+            <div key={p.name} style={{
+              position: "relative",
+              height: "440px",
+              borderRadius: "14px",
+              overflow: "hidden",
+            }}>
+              {/* Background */}
+              <div style={{
+                position: "absolute", inset: "0",
+                background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+              }} />
+
+              {/* Icon watermark */}
+              <div style={{ position: "absolute", top: "28px", right: "22px", color: "rgba(255,255,255,0.18)" }}>
+                <p.Icon size={100} />
+              </div>
+
+              {/* Bottom overlay */}
+              <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 55%, transparent 75%)" }} />
+
+              {/* Text content */}
+              <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "26px 24px" }}>
+                <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 10px", borderRadius: "4px", marginBottom: "12px", border: "1px solid rgba(255,255,255,0.25)" }}>{p.tag}</span>
+                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: "0", lineHeight: "1.6" }}>{p.description}</p>
+              </div>
             </div>
           ))}
         </div>

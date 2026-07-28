@@ -1,9 +1,11 @@
 "use client";
 
+import { IconCorn, IconSparkle, IconChocolateBar } from "./Icons";
+
 const products = [
-  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", emoji: "🌽" },
-  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", emoji: "✨" },
-  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", emoji: "🍫" },
+  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", Icon: IconCorn },
+  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", Icon: IconSparkle },
+  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", Icon: IconChocolateBar },
 ];
 
 export default function Products() {
@@ -29,20 +31,55 @@ export default function Products() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Catálogo</a>
-          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.5), 2px 2px 8px rgba(57,164,180,0.25), 0 0 20px rgba(57,164,180,0.1)" }}>Nuestra Línea de Cereales</h2>
+          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Nuestra Línea de Cereales</h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Hojuelas de maíz real, laminadas grano por grano — no masa moldeada.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
           {products.map((p) => (
-            <div key={p.name} style={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "24px 20px", transition: "box-shadow 0.2s, border-color 0.2s", cursor: "pointer" }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.09)"; e.currentTarget.style.borderColor = "#1B4F8A"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "#E5E7EB"; }}
+            <a key={p.name} href="/productos" style={{
+              position: "relative",
+              display: "block",
+              height: "460px",
+              borderRadius: "14px",
+              overflow: "hidden",
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+              onMouseEnter={(e) => {
+                const img = e.currentTarget.querySelector<HTMLElement>(".product-bg");
+                if (img) img.style.transform = "scale(1.06)";
+              }}
+              onMouseLeave={(e) => {
+                const img = e.currentTarget.querySelector<HTMLElement>(".product-bg");
+                if (img) img.style.transform = "scale(1)";
+              }}
             >
-              <div style={{ width: "52px", height: "52px", borderRadius: "10px", background: p.color + "15", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "26px", marginBottom: "16px" }}>{p.emoji}</div>
-              <span style={{ display: "inline-block", background: p.color + "18", color: p.color, fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", padding: "3px 8px", borderRadius: "4px", marginBottom: "8px" }}>{p.category}</span>
-              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#111827", margin: "0 0 4px 0" }}>{p.name}</h3>
-              <p style={{ fontSize: "13px", color: "#6B7280", margin: "0" }}>{p.subtitle}</p>
-            </div>
+              {/* Background */}
+              {/* En Fase 3 reemplazar background por: url('/productos/${p.name}.jpg') center/cover no-repeat */}
+              <div className="product-bg" style={{
+                position: "absolute", inset: "0",
+                background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+                transition: "transform 0.4s ease",
+              }} />
+
+              {/* Icon watermark */}
+              <div style={{ position: "absolute", top: "32px", right: "24px", color: "rgba(255,255,255,0.18)" }}>
+                <p.Icon size={110} />
+              </div>
+
+              {/* Bottom overlay */}
+              <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 55%, transparent 75%)" }} />
+
+              {/* Text content */}
+              <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "28px 26px" }}>
+                <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 10px", borderRadius: "4px", marginBottom: "12px", border: "1px solid rgba(255,255,255,0.25)" }}>{p.category}</span>
+                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", margin: "0 0 16px 0", lineHeight: "1.5", maxWidth: "280px" }}>{p.subtitle}</p>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#F5A623", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Ver ficha técnica →
+                </span>
+              </div>
+            </a>
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: "40px" }}>

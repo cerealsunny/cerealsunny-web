@@ -1,5 +1,7 @@
 "use client";
 
+import { IconPhone, IconMail, IconPin } from "./Icons";
+
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Empresa: [{ label: "Nosotros", href: "/nosotros" }],
   Productos: [
@@ -59,12 +61,12 @@ export default function Footer() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {[
-                { icon: "📞", text: "+58 212-953.9897" },
-                { icon: "✉️", text: "info@cerealsunny.com" },
-                { icon: "📍", text: "Caracas, Venezuela" },
+                { Icon: IconPhone, text: "+58 212-953.9897" },
+                { Icon: IconMail, text: "info@cerealsunny.com" },
+                { Icon: IconPin, text: "Caracas, Venezuela" },
               ].map((item) => (
                 <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ fontSize: "14px" }}>{item.icon}</span>
+                  <span style={{ color: "#93c5fd", display: "flex" }}><item.Icon size={14} /></span>
                   <span style={{ fontSize: "13px", color: "#93c5fd" }}>{item.text}</span>
                 </div>
               ))}

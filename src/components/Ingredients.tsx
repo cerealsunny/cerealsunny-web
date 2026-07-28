@@ -1,19 +1,22 @@
 "use client";
 
+import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "./Icons";
+
 const ingredients = [
-  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", icon: "🌽", bg: "#fffde7" },
-  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", icon: "🍬", bg: "#fff8e1" },
-  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", icon: "🍫", bg: "#f3e5f5" },
-  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", icon: "🌾", bg: "#e8f5e9" },
+  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", Icon: IconCorn, bg: "#fffde7" },
+  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", Icon: IconSugarCrystal, bg: "#fff8e1" },
+  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", Icon: IconCacao, bg: "#f3e5f5" },
+  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", Icon: IconWheat, bg: "#e8f5e9" },
 ];
 
 function IngredientCard({ item }: { item: typeof ingredients[0] }) {
+  const Icon = item.Icon;
   return (
     <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", aspectRatio: "3/4", cursor: "pointer" }}
       onMouseEnter={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "1"; }}
       onMouseLeave={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "0"; }}
     >
-      <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(40px, 6vw, 80px)" }}>{item.icon}</div>
+      <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", color: item.badgeColor }}><Icon size={64} /></div>
       <div style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: 2 }}>
         <span style={{ display: "inline-block", background: item.badgeColor, color: "#fff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", padding: "5px 10px", borderRadius: "4px" }}>{item.name}</span>
       </div>
@@ -49,7 +52,7 @@ export default function Ingredients() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Ingredientes</a>
-          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.5), 2px 2px 8px rgba(57,164,180,0.25), 0 0 20px rgba(57,164,180,0.1)" }}>Calidad desde el Origen</h2>
+          <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Calidad desde el Origen</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", width: "100%" }}>
           {ingredients.map((item) => <IngredientCard key={item.name} item={item} />)}

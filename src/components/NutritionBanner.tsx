@@ -1,11 +1,13 @@
 "use client";
 
+import { IconLeaf } from "./Icons";
+
 export default function NutritionBanner() {
   return (
     <section style={{ width: "100%", background: "linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%)", padding: "60px 24px" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", margin: "0 auto 16px" }}>🌿</div>
+          <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", margin: "0 auto 16px" }}><IconLeaf size={30} /></div>
           <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.5rem, 3vw, 2.4rem)", fontWeight: "900", color: "#fff", margin: "0 0 12px 0" }}>Transparencia Nutricional</h2>
           <p style={{ fontSize: "clamp(14px, 2vw, 17px)", color: "#bbf7d0", maxWidth: "520px", margin: "0 auto", lineHeight: "1.7" }}>Sin conservantes añadidos, según la lista de ingredientes declarada en cada empaque.</p>
         </div>
