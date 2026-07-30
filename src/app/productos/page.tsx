@@ -14,7 +14,7 @@ export default function ProductosPage() {
       <section style={{
         maxWidth: "1000px",
         margin: "0 auto",
-        padding: "180px 24px 60px",
+        padding: "220px 24px 60px",
         textAlign: "center",
       }}>
         <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "16px" }}>

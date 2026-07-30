@@ -37,7 +37,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    const onResize = () => setIsMobile(window.innerWidth < 768);
+    const onResize = () => setIsMobile(window.innerWidth < 860);
     onResize();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
@@ -59,65 +59,44 @@ export default function Header() {
         </div>
       )}
 
-      {/* Main nav */}
+      {/* Logo row */}
       <div style={{
         background: scrolled ? "#2a7d8c" : "#39a4b4",
-        borderBottom: "3px solid #F5A623",
+        borderBottom: isMobile ? "3px solid #F5A623" : "none",
         padding: isMobile ? "0 16px" : "0 32px",
-        height: isMobile ? "64px" : scrolled ? "72px" : "88px",
-        display: "flex",
+        height: isMobile ? "64px" : scrolled ? "56px" : "72px",
+        display: "grid",
+        gridTemplateColumns: "minmax(0, 1fr) auto minmax(0, 1fr)",
         alignItems: "center",
-        justifyContent: "space-between",
-        boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
+        columnGap: "12px",
         transition: "all 0.3s ease",
         position: "relative",
       }}>
 
-        {/* MOBILE: hamburger left */}
-        {isMobile && (
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}
-          >
-            <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
-            <span style={{ display: "block", width: "24px", height: "2px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "all 0.2s" }} />
-            <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
-          </button>
-        )}
+        {/* LEFT column: hamburger (mobile only) */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", minWidth: 0 }}>
+          {isMobile && (
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}
+            >
+              <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+              <span style={{ display: "block", width: "24px", height: "2px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "all 0.2s" }} />
+              <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+            </button>
+          )}
+        </div>
 
-        {/* DESKTOP: nav left */}
-        {!isMobile && (
-          <nav style={{ display: "flex", alignItems: "center" }}>
-            {navLinks.map((link, index) => (
-              <div key={link.href} style={{ display: "flex", alignItems: "center" }}>
-                <Link href={link.href} style={{
-                  color: "#ffffff", fontSize: "18px", fontWeight: "700", textDecoration: "none",
-                  fontFamily: "var(--font-barlow), 'Barlow Condensed', Arial, sans-serif",
-                  letterSpacing: "0.08em", textTransform: "uppercase", borderBottom: "2px solid transparent", paddingBottom: "2px",
-                  padding: "0 24px", transition: "color 0.2s, border-color 0.2s",
-                }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "transparent"; }}
-                >{link.label}</Link>
-                {index < navLinks.length - 1 && (
-                  <span style={{ color: "rgba(245,166,35,0.4)", fontSize: "18px", fontWeight: "300" }}>|</span>
-                )}
-              </div>
-            ))}
-          </nav>
-        )}
-
-        {/* CENTER: Logo */}
+        {/* CENTER column: Logo */}
         <Link href="/" style={{
           display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none",
-          position: isMobile ? "absolute" : "absolute",
-          left: "50%", transform: "translateX(-50%)",
+          justifySelf: "center",
         }}>
-          <SunLogo size={isMobile ? 32 : scrolled ? 36 : 46} />
+          <SunLogo size={isMobile ? 32 : scrolled ? 34 : 42} />
           <div style={{
             fontFamily: "Georgia, serif", fontWeight: "900",
-            fontSize: isMobile ? "14px" : scrolled ? "16px" : "20px",
-            color: "#ffffff", letterSpacing: "0.06em", lineHeight: "1", marginTop: "2px",
+            fontSize: isMobile ? "14px" : scrolled ? "15px" : "18px",
+            color: "#ffffff", letterSpacing: "0.06em", lineHeight: "1", marginTop: "2px", whiteSpace: "nowrap",
           }}>
             SUNNY<sup style={{ fontSize: "7px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
           </div>
@@ -126,9 +105,15 @@ export default function Header() {
           )}
         </Link>
 
-        {/* DESKTOP: right icons */}
-        {!isMobile && (
-          <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
+        {/* RIGHT column: contact icons (desktop) or phone icon (mobile) */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", minWidth: 0 }}>
+          {isMobile ? (
+            <a href="tel:+582129539897" style={{ color: "#F5A623", textDecoration: "none" }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          ) : (
             <Link href="/contacto" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", cursor: "pointer", opacity: 0.85, textDecoration: "none" }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.85")}
@@ -136,20 +121,38 @@ export default function Header() {
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
               </svg>
-              <span style={{ fontSize: "10px", color: "#93c5fd", letterSpacing: "0.05em" }}>Contáctanos</span>
+              <span style={{ fontSize: "10px", color: "#93c5fd", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>Contáctanos</span>
             </Link>
-          </div>
-        )}
-
-        {/* MOBILE: phone icon right */}
-        {isMobile && (
-          <a href="tel:+582129539897" style={{ color: "#F5A623", textDecoration: "none" }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-          </a>
-        )}
+          )}
+        </div>
       </div>
+
+      {/* Nav row — desktop only, full-width so labels never fight logo/icons for space */}
+      {!isMobile && (
+        <nav style={{
+          background: "#2a7d8c",
+          borderBottom: "3px solid #F5A623",
+          padding: "11px 32px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "32px",
+          boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
+          transition: "box-shadow 0.3s ease",
+        }}>
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} style={{
+              color: "#ffffff", fontSize: "13px", fontWeight: "600", textDecoration: "none", whiteSpace: "nowrap",
+              fontFamily: "var(--font-barlow), 'Barlow Condensed', Arial, sans-serif",
+              letterSpacing: "0.07em", textTransform: "uppercase", borderBottom: "2px solid transparent", paddingBottom: "3px",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "transparent"; }}
+            >{link.label}</Link>
+          ))}
+        </nav>
+      )}
 
       {/* Mobile dropdown menu */}
       {isMobile && menuOpen && (

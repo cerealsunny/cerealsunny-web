@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Content */}
       <div style={{
         position: "relative", zIndex: 10, width: "100%", maxWidth: "780px",
-        padding: "120px 24px 100px", boxSizing: "border-box",
+        padding: "170px 24px 100px", boxSizing: "border-box",
       }}>
 
         {/* Badge */}
@@ -64,7 +64,7 @@ export default function Hero() {
           {[
             { value: "1", label: "Año en el mercado venezolano" },
             { value: "3", label: "Presentaciones, un solo proceso real" },
-            { value: "0g", label: "Grasas trans en toda la línea" },
+            { value: "0", label: "Gramos de grasas trans en toda la línea" },
           ].map((stat) => (
             <div key={stat.label} style={{ maxWidth: "200px" }}>
               <div style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: "900", color: accent, lineHeight: "1", marginBottom: "6px" }}>{stat.value}</div>
