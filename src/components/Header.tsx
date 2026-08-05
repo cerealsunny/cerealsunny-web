@@ -30,6 +30,8 @@ const navLinks = [
   { label: "Salud y Nutrición", href: "/#nutricion" },
 ];
 
+const MAX_WIDTH = "1440px";
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +39,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    const onResize = () => setIsMobile(window.innerWidth < 860);
+    const onResize = () => setIsMobile(window.innerWidth < 1050);
     onResize();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
@@ -50,109 +52,109 @@ export default function Header() {
   return (
     <header style={{ width: "100%", position: "fixed", top: 0, left: 0, zIndex: 50 }}>
 
-      {/* Top info bar — desktop only */}
-      {!scrolled && !isMobile && (
-        <div style={{ background: "#2a7d8c", padding: "6px 32px", display: "flex", justifyContent: "flex-end", gap: "16px" }}>
-          <span style={{ color: "#93c5fd", fontSize: "12px" }}>Distribuidores: +58 212-953.9897</span>
-          <span style={{ color: "#4b6ea8" }}>|</span>
-          <span style={{ color: "#93c5fd", fontSize: "12px" }}>info@cerealsunny.com</span>
-        </div>
-      )}
-
-      {/* Logo row */}
+      {/* Main row — single tier: logo + nav + contact, bounded so it never stretches edge-to-edge on wide screens */}
       <div style={{
         background: scrolled ? "#2a7d8c" : "#39a4b4",
-        borderBottom: isMobile ? "3px solid #F5A623" : "none",
-        padding: isMobile ? "0 16px" : "0 32px",
-        height: isMobile ? "64px" : scrolled ? "56px" : "72px",
-        display: "grid",
-        gridTemplateColumns: "minmax(0, 1fr) auto minmax(0, 1fr)",
-        alignItems: "center",
-        columnGap: "12px",
+        borderBottom: "3px solid #F5A623",
+        boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
         transition: "all 0.3s ease",
-        position: "relative",
       }}>
-
-        {/* LEFT column: hamburger (mobile only) */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", minWidth: 0 }}>
-          {isMobile && (
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}
-            >
-              <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
-              <span style={{ display: "block", width: "24px", height: "2px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "all 0.2s" }} />
-              <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
-            </button>
-          )}
-        </div>
-
-        {/* CENTER column: Logo */}
-        <Link href="/" style={{
-          display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none",
-          justifySelf: "center",
+        <div style={{
+          maxWidth: MAX_WIDTH, margin: "0 auto",
+          padding: isMobile ? "0 16px" : "0 40px",
+          height: isMobile ? "64px" : scrolled ? "60px" : "76px",
+          display: isMobile ? "grid" : "flex",
+          gridTemplateColumns: isMobile ? "minmax(0, 1fr) auto minmax(0, 1fr)" : undefined,
+          alignItems: "center",
+          columnGap: isMobile ? "12px" : "36px",
+          transition: "all 0.3s ease",
         }}>
-          <SunLogo size={isMobile ? 32 : scrolled ? 34 : 42} />
-          <div style={{
-            fontFamily: "Georgia, serif", fontWeight: "900",
-            fontSize: isMobile ? "14px" : scrolled ? "15px" : "18px",
-            color: "#ffffff", letterSpacing: "0.06em", lineHeight: "1", marginTop: "2px", whiteSpace: "nowrap",
-          }}>
-            SUNNY<sup style={{ fontSize: "7px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
-          </div>
-          {!scrolled && !isMobile && (
-            <div style={{ fontSize: "8px", letterSpacing: "0.25em", color: "#93c5fd", textTransform: "uppercase", marginTop: "1px" }}>Cereal</div>
-          )}
-        </Link>
 
-        {/* RIGHT column: contact icons (desktop) or phone icon (mobile) */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", minWidth: 0 }}>
           {isMobile ? (
-            <a href="tel:+582129539897" style={{ color: "#F5A623", textDecoration: "none" }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-            </a>
+            <>
+              {/* LEFT: hamburger */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", minWidth: 0 }}>
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}
+                >
+                  <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+                  <span style={{ display: "block", width: "24px", height: "2px", background: "#fff", opacity: menuOpen ? 0 : 1, transition: "all 0.2s" }} />
+                  <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#F5A623" : "#fff", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+                </button>
+              </div>
+
+              {/* CENTER: logo */}
+              <Link href="/" style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none", justifySelf: "center" }}>
+                <SunLogo size={32} />
+                <div style={{ fontFamily: "Georgia, serif", fontWeight: "900", fontSize: "14px", color: "#ffffff", letterSpacing: "0.06em", lineHeight: "1", marginTop: "2px", whiteSpace: "nowrap" }}>
+                  SUNNY<sup style={{ fontSize: "7px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
+                </div>
+              </Link>
+
+              {/* RIGHT: phone icon */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", minWidth: 0 }}>
+                <a href="tel:+582129539897" style={{ color: "#F5A623", textDecoration: "none" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </a>
+              </div>
+            </>
           ) : (
-            <Link href="/contacto" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", cursor: "pointer", opacity: 0.85, textDecoration: "none" }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.85")}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              <span style={{ fontSize: "10px", color: "#93c5fd", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>Contáctanos</span>
-            </Link>
+            <>
+              {/* Logo */}
+              <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", flexShrink: 0 }}>
+                <SunLogo size={scrolled ? 38 : 46} />
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                  <div style={{
+                    fontFamily: "Georgia, serif", fontWeight: "900",
+                    fontSize: scrolled ? "16px" : "19px",
+                    color: "#ffffff", letterSpacing: "0.06em", lineHeight: "1", whiteSpace: "nowrap",
+                  }}>
+                    SUNNY<sup style={{ fontSize: "7px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
+                  </div>
+                  <div style={{ fontSize: "8px", letterSpacing: "0.25em", color: "#93c5fd", textTransform: "uppercase", marginTop: "2px" }}>Cereal</div>
+                </div>
+              </Link>
+
+              {/* Nav links — fills the space between logo and contact button */}
+              <nav style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center", gap: "30px" }}>
+                {navLinks.map((link) => (
+                  <Link key={link.href} href={link.href} style={{
+                    color: "#ffffff", fontSize: "14px", fontWeight: "600", textDecoration: "none", whiteSpace: "nowrap",
+                    fontFamily: "var(--font-barlow), 'Barlow Condensed', Arial, sans-serif",
+                    letterSpacing: "0.06em", textTransform: "uppercase", borderBottom: "2px solid transparent", paddingBottom: "3px",
+                    transition: "color 0.2s, border-color 0.2s",
+                  }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "transparent"; }}
+                  >{link.label}</Link>
+                ))}
+              </nav>
+
+              {/* Contact — real button, not a bare icon */}
+              <Link href="/contacto" style={{
+                display: "flex", alignItems: "center", gap: "8px", flexShrink: 0,
+                background: "transparent",
+                border: "1.5px solid rgba(255,255,255,0.45)",
+                borderRadius: "6px",
+                padding: "9px 18px",
+                textDecoration: "none",
+                transition: "border-color 0.2s, background 0.2s",
+              }}
+                onMouseEnter={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "#F5A623"; el.style.background = "rgba(245,166,35,0.12)"; }}
+                onMouseLeave={(e) => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "rgba(255,255,255,0.45)"; el.style.background = "transparent"; }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.34 6.34l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                <span style={{ fontSize: "13px", fontWeight: "700", color: "#ffffff", letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>Contáctanos</span>
+              </Link>
+            </>
           )}
         </div>
       </div>
-
-      {/* Nav row — desktop only, full-width so labels never fight logo/icons for space */}
-      {!isMobile && (
-        <nav style={{
-          background: "#2a7d8c",
-          borderBottom: "3px solid #F5A623",
-          padding: "11px 32px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "32px",
-          boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
-          transition: "box-shadow 0.3s ease",
-        }}>
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} style={{
-              color: "#ffffff", fontSize: "13px", fontWeight: "600", textDecoration: "none", whiteSpace: "nowrap",
-              fontFamily: "var(--font-barlow), 'Barlow Condensed', Arial, sans-serif",
-              letterSpacing: "0.07em", textTransform: "uppercase", borderBottom: "2px solid transparent", paddingBottom: "3px",
-              transition: "color 0.2s, border-color 0.2s",
-            }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "#F5A623"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = "transparent"; }}
-            >{link.label}</Link>
-          ))}
-        </nav>
-      )}
 
       {/* Mobile dropdown menu */}
       {isMobile && menuOpen && (

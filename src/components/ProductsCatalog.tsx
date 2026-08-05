@@ -19,6 +19,7 @@ type Producto = {
   tag: string;
   color: string;
   Icon: typeof IconCorn;
+  img?: string | null;
   description: string;
   ficha: FichaTecnica;
 };
@@ -29,6 +30,7 @@ const products: Producto[] = [
     tag: "Clásico",
     color: "#1B4F8A",
     Icon: IconCorn,
+    img: "/images/productos/sunny-flakes.jpg",
     description:
       "Hojuelas de maíz tostado, doradas y crocantes. Cada grano de maíz se descascarilla y se parte en tres piezas reales de grano — cada una se convierte en una hojuela. Sin masa, sin moldes: el sabor clásico de siempre.",
     ficha: {
@@ -57,6 +59,7 @@ const products: Producto[] = [
     tag: "Dulce",
     color: "#F5A623",
     Icon: IconSparkle,
+    img: "/images/productos/sunny-sugar.jpg",
     description:
       "La misma hojuela de maíz real, glaseada con azúcar para un crunch dulce que nunca falla en el punto de venta.",
     ficha: {
@@ -85,6 +88,7 @@ const products: Producto[] = [
     tag: "Chocolate",
     color: "#6b3f22",
     Icon: IconChocolateBar,
+    img: "/images/productos/sunny-choco-flakes.jpg",
     description:
       "Hojuelas de maíz real bañadas en chocolate, el antojo favorito de los más pequeños de la casa.",
     ficha: {
@@ -117,16 +121,23 @@ export default function ProductsCatalog() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", alignItems: "start" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 340px))", gap: "24px", alignItems: "start", justifyContent: "center" }}>
       {products.map((p) => {
         const isOpen = expanded === p.name;
         return (
           <div key={p.name}>
-            <div style={{ position: "relative", height: "440px", borderRadius: "14px", overflow: "hidden" }}>
-              <div style={{ position: "absolute", inset: "0", background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)` }} />
-              <div style={{ position: "absolute", top: "28px", right: "22px", color: "rgba(255,255,255,0.18)" }}>
-                <p.Icon size={100} />
-              </div>
+            <div style={{ position: "relative", aspectRatio: "2 / 3", borderRadius: "14px", overflow: "hidden" }}>
+              <div style={{
+                position: "absolute", inset: "0",
+                background: p.img
+                  ? `url('${p.img}') center/cover no-repeat`
+                  : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+              }} />
+              {!p.img && (
+                <div style={{ position: "absolute", top: "28px", right: "22px", color: "rgba(255,255,255,0.18)" }}>
+                  <p.Icon size={100} />
+                </div>
+              )}
               <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 55%, transparent 75%)" }} />
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "26px 24px" }}>
                 <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 10px", borderRadius: "4px", marginBottom: "12px", border: "1px solid rgba(255,255,255,0.25)" }}>{p.tag}</span>

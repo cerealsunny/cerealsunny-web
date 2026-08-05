@@ -3,10 +3,10 @@
 import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "./Icons";
 
 const ingredients = [
-  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", Icon: IconCorn, bg: "#fffde7" },
-  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", Icon: IconSugarCrystal, bg: "#fff8e1" },
-  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", Icon: IconCacao, bg: "#f3e5f5" },
-  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", Icon: IconWheat, bg: "#e8f5e9" },
+  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", Icon: IconCorn, bg: "#fffde7", img: "/images/ingredientes/maiz-descascarillado.jpg" },
+  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", Icon: IconSugarCrystal, bg: "#fff8e1", img: "/images/ingredientes/azucar-refinada.jpg" },
+  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", Icon: IconCacao, bg: "#f3e5f5", img: "/images/ingredientes/cacao-en-polvo.jpg" },
+  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", Icon: IconWheat, bg: "#e8f5e9", img: "/images/ingredientes/malta.jpg" },
 ];
 
 function IngredientCard({ item }: { item: typeof ingredients[0] }) {
@@ -16,7 +16,11 @@ function IngredientCard({ item }: { item: typeof ingredients[0] }) {
       onMouseEnter={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "1"; }}
       onMouseLeave={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "0"; }}
     >
-      <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", color: item.badgeColor }}><Icon size={64} /></div>
+      {item.img ? (
+        <div style={{ width: "100%", height: "100%", background: `url('${item.img}') center/cover no-repeat` }} />
+      ) : (
+        <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", color: item.badgeColor }}><Icon size={64} /></div>
+      )}
       <div style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: 2 }}>
         <span style={{ display: "inline-block", background: item.badgeColor, color: "#fff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", padding: "5px 10px", borderRadius: "4px" }}>{item.name}</span>
       </div>

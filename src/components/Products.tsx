@@ -3,9 +3,9 @@
 import { IconCorn, IconSparkle, IconChocolateBar } from "./Icons";
 
 const products = [
-  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", Icon: IconCorn },
-  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", Icon: IconSparkle },
-  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", Icon: IconChocolateBar },
+  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", Icon: IconCorn, img: "/images/productos/sunny-flakes.jpg" },
+  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", Icon: IconSparkle, img: "/images/productos/sunny-sugar.jpg" },
+  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", Icon: IconChocolateBar, img: "/images/productos/sunny-choco-flakes.jpg" },
 ];
 
 export default function Products() {
@@ -34,12 +34,12 @@ export default function Products() {
           <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Nuestra Línea de Cereales</h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Hojuelas de maíz real, laminadas grano por grano — no masa moldeada.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 340px))", gap: "24px", justifyContent: "center" }}>
           {products.map((p) => (
             <a key={p.name} href="/productos" style={{
               position: "relative",
               display: "block",
-              height: "460px",
+              aspectRatio: "2 / 3",
               borderRadius: "14px",
               overflow: "hidden",
               textDecoration: "none",
@@ -55,17 +55,20 @@ export default function Products() {
               }}
             >
               {/* Background */}
-              {/* En Fase 3 reemplazar background por: url('/productos/${p.name}.jpg') center/cover no-repeat */}
               <div className="product-bg" style={{
                 position: "absolute", inset: "0",
-                background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+                background: p.img
+                  ? `url('${p.img}') center/cover no-repeat`
+                  : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
                 transition: "transform 0.4s ease",
               }} />
 
-              {/* Icon watermark */}
-              <div style={{ position: "absolute", top: "32px", right: "24px", color: "rgba(255,255,255,0.18)" }}>
-                <p.Icon size={110} />
-              </div>
+              {/* Icon watermark — only when there's no product photo yet */}
+              {!p.img && (
+                <div style={{ position: "absolute", top: "32px", right: "24px", color: "rgba(255,255,255,0.18)" }}>
+                  <p.Icon size={110} />
+                </div>
+              )}
 
               {/* Bottom overlay */}
               <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 55%, transparent 75%)" }} />

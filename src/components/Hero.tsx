@@ -1,17 +1,33 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 const accent = "#F5A623";
+const heroImages = ["/hero-1.jpg", "/hero-2.jpg"];
+const SLIDE_INTERVAL_MS = 6000;
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((i) => (i + 1) % heroImages.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section style={{ position: "relative", width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
 
-      {/* Background */}
-      {/* En Fase 3 reemplazar background por: background: "url('/hero-1.jpg') center/cover no-repeat" */}
-      <div style={{
-        position: "absolute", inset: "0", zIndex: 0,
-        background: "linear-gradient(135deg, #0a1428 0%, #1B4F8A 60%, #0a1428 100%)",
-      }} />
+      {/* Background — rotating slides with crossfade */}
+      {heroImages.map((src, i) => (
+        <div key={src} style={{
+          position: "absolute", inset: "0", zIndex: 0,
+          background: `url('${src}') center/cover no-repeat`,
+          opacity: i === current ? 1 : 0,
+          transition: "opacity 1.2s ease",
+        }} />
+      ))}
 
       {/* Overlay */}
       <div style={{ position: "absolute", inset: "0", zIndex: 1, background: "linear-gradient(to right, rgba(10,20,40,0.95) 0%, rgba(10,20,40,0.7) 50%, rgba(10,20,40,0.2) 100%)" }} />
@@ -19,16 +35,12 @@ export default function Hero() {
       {/* Content */}
       <div style={{
         position: "relative", zIndex: 10, width: "100%", maxWidth: "780px",
-        padding: "170px 24px 100px", boxSizing: "border-box",
+        padding: "130px 24px 100px", boxSizing: "border-box",
       }}>
 
-        {/* Badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "28px", flexWrap: "wrap" }}>
-          <span style={{ background: accent, color: "#1B4F8A", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.14em", padding: "6px 14px", borderRadius: "4px" }}>
-            Fabricante B2B
-          </span>
-          <span style={{ width: "24px", height: "1px", background: "rgba(245,166,35,0.5)", display: "inline-block" }} />
-          <span style={{ color: "#93c5fd", fontSize: "13px", fontWeight: "500" }}>Venezuela · Latinoamérica</span>
+        {/* Locator */}
+        <div style={{ marginBottom: "28px" }}>
+          <span style={{ color: "#93c5fd", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.14em" }}>Venezuela · Latinoamérica</span>
         </div>
 
         {/* Headline */}

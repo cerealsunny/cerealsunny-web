@@ -15,7 +15,7 @@ export default function ContactoPage() {
       <section style={{
         maxWidth: "1100px",
         margin: "0 auto",
-        padding: "200px 24px 120px",
+        padding: "160px 24px 120px",
       }}>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "16px" }}>

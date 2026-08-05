@@ -3,11 +3,11 @@ import { useRef } from "react";
 import { IconBowl, IconChicken, IconChocolateBar, IconChocolateSwirl, IconParfait } from "./Icons";
 
 const recipes = [
-  { name: "Cereal con Leche", category: "Desayuno", time: "2 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", Icon: IconBowl },
-  { name: "Pollo Crocante con Hojuelas de Maíz", category: "Almuerzo", time: "35 min", servings: "4 porciones", bgColor: "#FFF7ED", badgeColor: "#92400e", Icon: IconChicken },
-  { name: "Barritas Crocantes de Chocolate", category: "Postre", time: "20 min", servings: "8 barras", bgColor: "#FFF1F2", badgeColor: "#be123c", Icon: IconChocolateBar },
-  { name: "Nidos de Chocolate", category: "Postre", time: "15 min", servings: "10 nidos", bgColor: "#F5F3FF", badgeColor: "#7c3aed", Icon: IconChocolateSwirl },
-  { name: "Parfait de Yogur con Hojuelas", category: "Merienda", time: "8 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", Icon: IconParfait },
+  { name: "Cereal con Leche", category: "Desayuno", time: "2 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", Icon: IconBowl, img: "/images/recetas/cereal-con-leche.jpg" },
+  { name: "Pollo Crocante con Hojuelas de Maíz", category: "Almuerzo", time: "35 min", servings: "4 porciones", bgColor: "#FFF7ED", badgeColor: "#92400e", Icon: IconChicken, img: "/images/recetas/pollo-crocante.jpg" },
+  { name: "Barritas Crocantes de Chocolate", category: "Postre", time: "20 min", servings: "8 barras", bgColor: "#FFF1F2", badgeColor: "#be123c", Icon: IconChocolateBar, img: "/images/recetas/barras-crocantes-chocolate.jpg" },
+  { name: "Nidos de Chocolate", category: "Postre", time: "15 min", servings: "10 nidos", bgColor: "#F5F3FF", badgeColor: "#7c3aed", Icon: IconChocolateSwirl, img: "/images/recetas/nidos-de-chocolate.jpg" },
+  { name: "Parfait de Yogur con Hojuelas", category: "Merienda", time: "8 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", Icon: IconParfait, img: "/images/recetas/parfait-de-yogurt.jpg" },
 ];
 
 const cardsPerRow = Math.min(recipes.length, 6);
@@ -70,7 +70,11 @@ export default function Recipes() {
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)")}
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
-                <div style={{ height: "130px", background: r.bgColor, display: "flex", alignItems: "center", justifyContent: "center", color: r.badgeColor }}><r.Icon size={44} /></div>
+                <div style={{
+                  height: "130px",
+                  background: r.img ? `url('${r.img}') center/cover no-repeat` : r.bgColor,
+                  display: "flex", alignItems: "center", justifyContent: "center", color: r.badgeColor,
+                }}>{!r.img && <r.Icon size={44} />}</div>
                 <div style={{ padding: "14px" }}>
                   <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "10px", fontWeight: "700", textTransform: "uppercase", padding: "3px 7px", borderRadius: "4px", marginBottom: "6px" }}>{r.category}</span>
                   <h3 style={{ fontFamily: "Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>

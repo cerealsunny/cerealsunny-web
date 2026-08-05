@@ -44,3 +44,6 @@ next-env.d.ts
 CerealSunny-Deploy.bat
 CerealSunny-Deploy-v3.bat
 *.bat
+
+# claude code local config
+.claude/

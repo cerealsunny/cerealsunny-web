@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const steps = [
@@ -7,47 +8,25 @@ const steps = [
     n: "01",
     title: "Grano de Maíz Real",
     desc: "Seleccionado y descascarillado — sin harinas, sin mezclas.",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <ellipse cx="18" cy="18" rx="9" ry="14" />
-      </svg>
-    ),
+    image: "/images/proceso/paso-01-grano-real.jpg",
   },
   {
     n: "02",
     title: "Se Parte en Tres",
     desc: "Cada grano se divide en tres partes reales de grano.",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <ellipse cx="18" cy="18" rx="9" ry="14" />
-        <path d="M12 6v24M24 6v24" />
-      </svg>
-    ),
+    image: "/images/proceso/paso-02-se-parte.jpg",
   },
   {
     n: "03",
     title: "Cocción a Vapor",
     desc: "Se cuece a vapor cada pieza de grano para ablandarla.",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-        <path d="M12 29c2-4 -2-6 0-10" />
-        <path d="M18 29c2-4 -2-6 0-10" />
-        <path d="M24 29c2-4 -2-6 0-10" />
-        <rect x="8" y="19" width="20" height="4" rx="2" />
-      </svg>
-    ),
+    image: "/images/proceso/paso-03-coccion-vapor.jpg",
   },
   {
     n: "04",
     title: "Laminado y Tueste",
     desc: "Rodillos aplanan cada pieza en una hojuela crocante.",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="10" cy="14" r="5" />
-        <circle cx="26" cy="14" r="5" />
-        <path d="M6 27c6-4 18-4 24 0" />
-      </svg>
-    ),
+    image: "/images/proceso/paso-04-laminado-tueste.jpg",
   },
 ];
 
@@ -91,25 +70,57 @@ export default function ProcessComparison() {
           </p>
         </div>
 
-        {/* Steps — editorial numbered flow */}
+        {/* Steps — visual sequence with illustrated cards */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gap: "20px",
           marginBottom: "80px",
-          borderTop: "1px solid rgba(17,24,39,0.08)",
         }}>
           {steps.map((s, i) => (
             <div key={s.n} style={{
-              padding: "32px 20px",
-              borderRight: i < steps.length - 1 ? "1px solid rgba(17,24,39,0.08)" : "none",
+              textAlign: "center",
+              background: "#ffffff",
+              border: "1px solid rgba(17,24,39,0.08)",
+              borderRadius: "14px",
+              overflow: "hidden",
+              boxShadow: "0 2px 18px rgba(27,79,138,0.06)",
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(20px)",
               transition: `opacity 0.6s ease ${0.1 + i * 0.12}s, transform 0.6s ease ${0.1 + i * 0.12}s`,
             }}>
-              <div style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: "700", color: "#F5A623", letterSpacing: "0.1em", marginBottom: "14px" }}>{s.n}</div>
-              <div style={{ color: "#39a4b4", marginBottom: "16px" }}>{s.icon}</div>
-              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0" }}>{s.title}</h3>
-              <p style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.6", margin: "0" }}>{s.desc}</p>
+              <div style={{
+                position: "relative",
+                width: "100%",
+                aspectRatio: "4 / 3",
+                background: "linear-gradient(135deg, #fff8ec 0%, #ffffff 100%)",
+                borderBottom: "1px solid rgba(245,166,35,0.25)",
+              }}>
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 260px"
+                  style={{ objectFit: "cover" }}
+                />
+                <span style={{
+                  position: "absolute",
+                  top: "10px",
+                  left: "10px",
+                  fontFamily: "Georgia, serif",
+                  fontSize: "11px",
+                  fontWeight: "700",
+                  color: "#ffffff",
+                  letterSpacing: "0.1em",
+                  background: "rgba(27,79,138,0.85)",
+                  padding: "4px 10px",
+                  borderRadius: "20px",
+                }}>PASO {s.n}</span>
+              </div>
+              <div style={{ padding: "20px 20px 26px" }}>
+                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0" }}>{s.title}</h3>
+                <p style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.6", margin: "0" }}>{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
