@@ -40,12 +40,11 @@ export default function NosotrosPage() {
           marca internacional.
         </p>
         <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: "1.9", margin: "0 0 14px 0" }}>
-          Por eso, en lugar de levantar una fábrica desde cero, decidimos aliarnos con una
-          planta de manufactura de cereales en Maracay, estado Aragua, con una trayectoria
-          consolidada fabricando bajo los estándares, procesos y materia prima que emplean
-          las marcas líderes del mercado cerealero mundial. Esa alianza es la que nos permite
-          decir, sin exagerar: Sunny sabe a lo que ya conoces, cuesta lo que un distribuidor
-          necesita, y lleva el nombre de una marca 100% pensada para el mercado venezolano.
+          Por eso construimos nuestra producción en Maracay, estado Aragua, bajo los mismos
+          estándares, procesos y materia prima que emplean las marcas líderes del mercado
+          cerealero mundial. Ese enfoque es el que nos permite decir, sin exagerar: Sunny sabe
+          a lo que ya conoces, cuesta lo que un distribuidor necesita, y lleva el nombre de una
+          marca 100% pensada para el mercado venezolano.
         </p>
         <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: "1.9", margin: "0" }}>
           Llevamos apenas un año en el mercado — y esa juventud es nuestra ventaja: decisiones
