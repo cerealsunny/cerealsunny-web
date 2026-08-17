@@ -14,9 +14,10 @@ const barlow = Barlow_Condensed({
 });
 
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cerealsunny-web.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: "Cereal Sunny",
   description: "Fabricante de cereales de alta calidad para distribuidores.",
   openGraph: {
@@ -29,6 +30,20 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Cereal Sunny",
+  url: SITE_URL,
+  telephone: "+58-212-953-9897",
+  email: "info@cerealsunny.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Caracas",
+    addressCountry: "VE",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -37,6 +52,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${playfair.variable} ${barlow.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         {children}
       </body>
     </html>

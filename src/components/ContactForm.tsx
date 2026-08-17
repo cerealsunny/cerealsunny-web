@@ -83,6 +83,7 @@ function FloatingField({
 export default function ContactForm() {
   const [nombre, setNombre] = useState("");
   const [empresa, setEmpresa] = useState("");
+  const [estado, setEstado] = useState("");
   const [tipo, setTipo] = useState(tiposConsulta[0]);
   const [volumen, setVolumen] = useState<string | null>(null);
   const [mensaje, setMensaje] = useState("");
@@ -92,6 +93,7 @@ export default function ContactForm() {
   const buildMessage = () =>
     [
       `Hola, soy ${nombre} de ${empresa}.`,
+      estado ? `Estado/Ciudad: ${estado}` : null,
       `Tipo de consulta: ${tipo}`,
       volumen ? `Volumen estimado: ${volumen}` : null,
       mensaje ? `Mensaje: ${mensaje}` : null,
@@ -109,6 +111,7 @@ export default function ContactForm() {
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
         <FloatingField label="Nombre" value={nombre} onChange={setNombre} />
         <FloatingField label="Empresa" value={empresa} onChange={setEmpresa} />
+        <FloatingField label="Estado / Ciudad" value={estado} onChange={setEstado} />
 
         <div>
           <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6B7280", marginBottom: "10px" }}>

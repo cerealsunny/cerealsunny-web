@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Sobre Sunny · Cereal Sunny",
   description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
+  alternates: { canonical: "/nosotros" },
 };
 
 export default function NosotrosPage() {

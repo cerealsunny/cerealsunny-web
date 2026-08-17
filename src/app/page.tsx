@@ -10,7 +10,8 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Cereal Sunny — Fabricante de Cereales para Distribuidores",
   description:
-    "Cereal Sunny: fabricante venezolano de cereales de alta calidad. Venta exclusiva a distribuidores mayoristas. Granola, copos, muesli y más.",
+    "Cereal Sunny: fabricante venezolano de cereales de maíz laminado — Sunny Flakes, Sunny Sugar y Sunny Choco Flakes. Venta exclusiva a distribuidores mayoristas en Venezuela.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

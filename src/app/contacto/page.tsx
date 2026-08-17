@@ -6,6 +6,7 @@ import { IconPhone, IconMail, IconPin } from "@/components/Icons";
 export const metadata = {
   title: "Contacto · Cereal Sunny",
   description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

@@ -1,15 +1,47 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RecetasCatalog from "@/components/RecetasCatalog";
+import { recipes } from "@/data/recipes";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Recetas · Cereal Sunny",
   description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
+  alternates: { canonical: "/recetas" },
 };
+
+function parseTimeToISO8601(time: string): string | undefined {
+  const match = time.match(/(\d+)\s*min/);
+  if (!match) return undefined;
+  return `PT${match[1]}M`;
+}
+
+const recipeSchemas = recipes.map((r) => ({
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: r.name,
+  description: r.description,
+  image: r.img ? `${SITE_URL}${r.img}` : undefined,
+  recipeCategory: r.category,
+  recipeYield: r.servings,
+  totalTime: parseTimeToISO8601(r.time),
+  recipeIngredient: r.ingredientes,
+  recipeInstructions: r.pasos.map((paso) => ({
+    "@type": "HowToStep",
+    text: paso,
+  })),
+}));
 
 export default function RecetasPage() {
   return (
     <main>
+      {recipeSchemas.map((schema) => (
+        <script
+          key={schema.name}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <Header />
       <section style={{
         maxWidth: "1000px",
