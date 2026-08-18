@@ -15,6 +15,7 @@ export default function NutritionBanner() {
           {[
             { value: "0g", label: "Grasas Trans", desc: "Libre de grasas trans en toda la línea" },
             { value: "Sin", label: "Conservantes Añadidos", desc: "Ningún conservante en la lista de ingredientes" },
+            { value: "✓", label: "Libre de Gluten", desc: "Certificación libre de gluten en toda la línea" },
           ].map((s) => (
             <div key={s.label} style={{ background: "rgba(255,255,255,0.1)", borderRadius: "12px", padding: "24px", textAlign: "center", border: "1px solid rgba(255,255,255,0.15)" }}>
               <div style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: "900", color: "#fff", lineHeight: "1", marginBottom: "6px" }}>{s.value}</div>

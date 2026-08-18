@@ -10,6 +10,11 @@ export const faqs: FaqItem[] = [
       "No vendemos al consumidor final. Cereal Sunny se distribuye exclusivamente a través de distribuidores mayoristas en Venezuela y Latinoamérica.",
   },
   {
+    question: "¿Cereal Sunny contiene gluten?",
+    answer:
+      "No. Todos nuestros cereales son libres de gluten, elaborados 100% con maíz real.",
+  },
+  {
     question: "¿Qué hace diferente a Cereal Sunny de otros cereales?",
     answer:
       "Nuestras hojuelas se fabrican con laminado grano por grano, no con masa extruida. Cada hojuela nace de un grano real de maíz.",
