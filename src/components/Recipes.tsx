@@ -3,11 +3,16 @@ import { useRef } from "react";
 import { IconBowl, IconChicken, IconChocolateBar, IconChocolateSwirl, IconParfait } from "./Icons";
 
 const recipes = [
-  { name: "Cereal con Leche", category: "Desayuno", time: "2 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", Icon: IconBowl, img: "/images/recetas/cereal-con-leche.jpg" },
-  { name: "Pollo Crocante con Hojuelas de Maíz", category: "Almuerzo", time: "35 min", servings: "4 porciones", bgColor: "#FFF7ED", badgeColor: "#92400e", Icon: IconChicken, img: "/images/recetas/pollo-crocante.jpg" },
-  { name: "Barritas Crocantes de Chocolate", category: "Postre", time: "20 min", servings: "8 barras", bgColor: "#FFF1F2", badgeColor: "#be123c", Icon: IconChocolateBar, img: "/images/recetas/barras-crocantes-chocolate.jpg" },
-  { name: "Nidos de Chocolate", category: "Postre", time: "15 min", servings: "10 nidos", bgColor: "#F5F3FF", badgeColor: "#7c3aed", Icon: IconChocolateSwirl, img: "/images/recetas/nidos-de-chocolate.jpg" },
-  { name: "Parfait de Yogur con Hojuelas", category: "Merienda", time: "8 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", Icon: IconParfait, img: "/images/recetas/parfait-de-yogurt.jpg" },
+  { name: "Cereal con Leche", category: "Desayuno", time: "2 min", servings: "1 porción", bgColor: "#EFF6FF", badgeColor: "#1B4F8A", Icon: IconBowl, img: "/images/recetas/cereal-con-leche.jpg", alt: "Tazón de cereal con leche preparado con Sunny Flakes" },
+  { name: "Pollo Crocante con Hojuelas de Maíz", category: "Almuerzo", time: "35 min", servings: "4 porciones", bgColor: "#FFF7ED", badgeColor: "#92400e", Icon: IconChicken, img: "/images/recetas/pollo-crocante.jpg", alt: "Pechugas de pollo empanizadas con Sunny Flakes trituradas" },
+  { name: "Barritas Crocantes de Chocolate", category: "Postre", time: "20 min", servings: "8 barras", bgColor: "#FFF1F2", badgeColor: "#be123c", Icon: IconChocolateBar, img: "/images/recetas/barras-crocantes-chocolate.jpg", alt: "Barritas crocantes de Sunny Choco Flakes cortadas en cuadros" },
+  { name: "Nidos de Chocolate", category: "Postre", time: "15 min", servings: "10 nidos", bgColor: "#F5F3FF", badgeColor: "#7c3aed", Icon: IconChocolateSwirl, img: "/images/recetas/nidos-de-chocolate.jpg", alt: "Nidos de chocolate hechos con Sunny Choco Flakes" },
+  { name: "Parfait de Yogur con Hojuelas", category: "Merienda", time: "8 min", servings: "2 porciones", bgColor: "#F0FDF4", badgeColor: "#166534", Icon: IconParfait, img: "/images/recetas/parfait-de-yogurt.jpg", alt: "Parfait en capas de yogur, fruta y Sunny Flakes" },
+  { name: "Panquecas Crocantes con Costra de Hojuelas", category: "Desayuno", time: "20 min", servings: "4 porciones", bgColor: "#FEF3C7", badgeColor: "#d97706", Icon: IconBowl, img: "/images/recetas/panquecas-crocantes.jpg", alt: "Panquecas apiladas con costra crocante de Sunny Flakes" },
+  { name: "Palitos de Pescado Crocante en Costra de Hojuelas", category: "Cena", time: "30 min", servings: "4 porciones", bgColor: "#ECFEFF", badgeColor: "#0e7490", Icon: IconChicken, img: "/images/recetas/palitos-pescado-crocante.jpg", alt: "Palitos de pescado empanizados con Sunny Flakes trituradas" },
+  { name: "Cheesecake sin Horno con Base Crocante", category: "Postre", time: "25 min + reposo", servings: "8 porciones", bgColor: "#FEF9C3", badgeColor: "#a16207", Icon: IconChocolateSwirl, img: "/images/recetas/cheesecake-sin-horno.jpg", alt: "Cheesecake sin horno con base crocante de Sunny Flakes" },
+  { name: "Barras de Granola Caseras con Miel y Hojuelas", category: "Merienda", time: "15 min + reposo", servings: "10 barras", bgColor: "#F7FEE7", badgeColor: "#65a30d", Icon: IconBowl, img: "/images/recetas/barras-granola-caseras.jpg", alt: "Barras de granola caseras con miel, frutos secos y Sunny Flakes" },
+  { name: "Mix Garapiñado de Hojuelas y Frutos Secos", category: "Pasapalo", time: "18 min", servings: "6 porciones", bgColor: "#FFFBEB", badgeColor: "#b45309", Icon: IconParfait, img: "/images/recetas/mix-garapinado-hojuelas.jpg", alt: "Mix garapiñado de Sunny Flakes y frutos secos caramelizados" },
 ];
 
 const cardsPerRow = Math.min(recipes.length, 6);
@@ -70,11 +75,14 @@ export default function Recipes() {
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)")}
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
-                <div style={{
-                  height: "130px",
-                  background: r.img ? `url('${r.img}') center/cover no-repeat` : r.bgColor,
-                  display: "flex", alignItems: "center", justifyContent: "center", color: r.badgeColor,
-                }}>{!r.img && <r.Icon size={44} />}</div>
+                <div
+                  role={r.img ? "img" : undefined}
+                  aria-label={r.img ? r.alt : undefined}
+                  style={{
+                    height: "130px",
+                    background: r.img ? `url('${r.img}') center/cover no-repeat` : r.bgColor,
+                    display: "flex", alignItems: "center", justifyContent: "center", color: r.badgeColor,
+                  }}>{!r.img && <r.Icon size={44} />}</div>
                 <div style={{ padding: "14px" }}>
                   <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "10px", fontWeight: "700", textTransform: "uppercase", padding: "3px 7px", borderRadius: "4px", marginBottom: "6px" }}>{r.category}</span>
                   <h3 style={{ fontFamily: "Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>

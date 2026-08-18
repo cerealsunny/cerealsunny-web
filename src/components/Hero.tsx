@@ -21,7 +21,7 @@ export default function Hero() {
 
       {/* Background — rotating slides with crossfade */}
       {heroImages.map((src, i) => (
-        <div key={src} style={{
+        <div key={src} aria-hidden="true" style={{
           position: "absolute", inset: "0", zIndex: 0,
           background: `url('${src}') center/cover no-repeat`,
           opacity: i === current ? 1 : 0,

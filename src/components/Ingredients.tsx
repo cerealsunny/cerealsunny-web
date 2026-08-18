@@ -3,10 +3,10 @@
 import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "./Icons";
 
 const ingredients = [
-  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", Icon: IconCorn, bg: "#fffde7", img: "/images/ingredientes/maiz-descascarillado.jpg" },
-  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", Icon: IconSugarCrystal, bg: "#fff8e1", img: "/images/ingredientes/azucar-refinada.jpg" },
-  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", Icon: IconCacao, bg: "#f3e5f5", img: "/images/ingredientes/cacao-en-polvo.jpg" },
-  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", Icon: IconWheat, bg: "#e8f5e9", img: "/images/ingredientes/malta.jpg" },
+  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", badgeColor: "#1B4F8A", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante.", Icon: IconCorn, bg: "#fffde7", img: "/images/ingredientes/maiz-descascarillado.jpg", alt: "Grano de maíz descascarillado y desgerminado, materia prima de las hojuelas Sunny" },
+  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", badgeColor: "#92400e", description: "Aporta el dulzor característico de nuestra presentación azucarada.", Icon: IconSugarCrystal, bg: "#fff8e1", img: "/images/ingredientes/azucar-refinada.jpg", alt: "Azúcar refinada, ingrediente de Sunny Sugar Flakes" },
+  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", badgeColor: "#7c3aed", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate.", Icon: IconCacao, bg: "#f3e5f5", img: "/images/ingredientes/cacao-en-polvo.jpg", alt: "Cacao en polvo, ingrediente de Sunny Choco Flakes" },
+  { name: "Malta", badge: "Presente en la Línea", badgeColor: "#166534", description: "Saborizante natural de cereal presente en las tres presentaciones.", Icon: IconWheat, bg: "#e8f5e9", img: "/images/ingredientes/malta.jpg", alt: "Malta, saborizante natural de cereal" },
 ];
 
 function IngredientCard({ item }: { item: typeof ingredients[0] }) {
@@ -17,7 +17,7 @@ function IngredientCard({ item }: { item: typeof ingredients[0] }) {
       onMouseLeave={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "0"; }}
     >
       {item.img ? (
-        <div style={{ width: "100%", height: "100%", background: `url('${item.img}') center/cover no-repeat` }} />
+        <div role="img" aria-label={item.alt} style={{ width: "100%", height: "100%", background: `url('${item.img}') center/cover no-repeat` }} />
       ) : (
         <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", color: item.badgeColor }}><Icon size={64} /></div>
       )}

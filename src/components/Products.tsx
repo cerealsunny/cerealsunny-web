@@ -3,9 +3,9 @@
 import { IconCorn, IconSparkle, IconChocolateBar } from "./Icons";
 
 const products = [
-  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", Icon: IconCorn, img: "/images/productos/sunny-flakes.jpg" },
-  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", Icon: IconSparkle, img: "/images/productos/sunny-sugar.jpg" },
-  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", Icon: IconChocolateBar, img: "/images/productos/sunny-choco-flakes.jpg" },
+  { category: "Clásico", name: "Sunny Flakes", subtitle: "Hojuelas de maíz laminadas grano por grano", color: "#1B4F8A", Icon: IconCorn, img: "/images/productos/sunny-flakes.jpg", alt: "Hojuelas de maíz Sunny Flakes doradas y crocantes" },
+  { category: "Dulce", name: "Sunny Sugar", subtitle: "La misma hojuela real, glaseada con azúcar", color: "#F5A623", Icon: IconSparkle, img: "/images/productos/sunny-sugar.jpg", alt: "Hojuelas de maíz azucaradas Sunny Sugar" },
+  { category: "Chocolate", name: "Sunny Choco Flakes", subtitle: "Bañadas en chocolate, el antojo de siempre", color: "#6b3f22", Icon: IconChocolateBar, img: "/images/productos/sunny-choco-flakes.jpg", alt: "Hojuelas de maíz bañadas en chocolate Sunny Choco Flakes" },
 ];
 
 export default function Products() {
@@ -55,13 +55,17 @@ export default function Products() {
               }}
             >
               {/* Background */}
-              <div className="product-bg" style={{
-                position: "absolute", inset: "0",
-                background: p.img
-                  ? `url('${p.img}') center/cover no-repeat`
-                  : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
-                transition: "transform 0.4s ease",
-              }} />
+              <div
+                className="product-bg"
+                role={p.img ? "img" : undefined}
+                aria-label={p.img ? p.alt : undefined}
+                style={{
+                  position: "absolute", inset: "0",
+                  background: p.img
+                    ? `url('${p.img}') center/cover no-repeat`
+                    : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+                  transition: "transform 0.4s ease",
+                }} />
 
               {/* Icon watermark — only when there's no product photo yet */}
               {!p.img && (
