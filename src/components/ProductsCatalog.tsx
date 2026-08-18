@@ -27,7 +27,7 @@ export default function ProductsCatalog() {
               <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 55%, transparent 75%)" }} />
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "26px 24px" }}>
                 <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 10px", borderRadius: "4px", marginBottom: "12px", border: "1px solid rgba(255,255,255,0.25)" }}>{p.tag}</span>
-                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
+                <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "22px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
                 <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: "0 0 14px 0", lineHeight: "1.6" }}>{p.description}</p>
                 <button
                   onClick={() => setExpanded(isOpen ? null : p.name)}

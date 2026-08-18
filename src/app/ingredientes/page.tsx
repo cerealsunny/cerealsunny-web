@@ -28,7 +28,7 @@ export default function IngredientesPage() {
         <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "16px" }}>
           Calidad
         </span>
-        <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 20px 0" }}>
+        <h1 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 20px 0" }}>
           Calidad desde el Origen
         </h1>
         <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: "1.8", maxWidth: "620px", margin: "0 auto" }}>
@@ -57,7 +57,7 @@ export default function IngredientesPage() {
               <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 78%)" }} />
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "20px 22px" }}>
                 <span style={{ display: "inline-block", background: item.color, color: "#fff", fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", padding: "4px 9px", borderRadius: "4px", marginBottom: "10px" }}>{item.badge}</span>
-                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{item.name}</h3>
+                <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "18px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{item.name}</h3>
                 <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.85)", margin: "0", lineHeight: "1.6" }}>{item.description}</p>
               </div>
             </div>

@@ -26,7 +26,7 @@ function IngredientCard({ item }: { item: typeof ingredients[0] }) {
       </div>
       <div className="overlay" style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(10,20,40,0.92) 0%, rgba(10,20,40,0.6) 50%, rgba(10,20,40,0.2) 100%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "20px 16px", opacity: "0", transition: "opacity 0.3s ease", zIndex: 3 }}>
         <span style={{ display: "inline-block", background: item.badgeColor, color: "#fff", fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", padding: "4px 9px", borderRadius: "4px", marginBottom: "8px", alignSelf: "flex-start" }}>{item.badge}</span>
-        <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#fff", margin: "0 0 6px 0" }}>{item.name}</h3>
+        <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#fff", margin: "0 0 6px 0" }}>{item.name}</h3>
         <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.85)", margin: "0", lineHeight: "1.5" }}>{item.description}</p>
       </div>
     </div>

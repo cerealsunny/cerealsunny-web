@@ -39,7 +39,7 @@ export default function NosotrosPage() {
         <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "16px" }}>
           Sobre Sunny
         </span>
-        <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 20px 0" }}>
+        <h1 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 20px 0" }}>
           Fabricante de Cereales
         </h1>
         <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: "1.8", maxWidth: "560px", margin: "0 auto" }}>
@@ -50,7 +50,7 @@ export default function NosotrosPage() {
       </section>
 
       <section style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px 60px", textAlign: "left" }}>
-        <h2 style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: "700", color: "#111827", marginBottom: "16px" }}>
+        <h2 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "22px", fontWeight: "700", color: "#111827", marginBottom: "16px" }}>
           Nuestra Historia
         </h2>
         <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: "1.9", margin: "0 0 14px 0" }}>
@@ -76,7 +76,7 @@ export default function NosotrosPage() {
       <section style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px 100px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
           <div style={{ background: "#F9FAFB", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "28px 24px" }}>
-            <h3 style={{ fontFamily: "Georgia, serif", fontSize: "17px", fontWeight: "700", color: "#111827", margin: "0 0 12px 0" }}>Misión</h3>
+            <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "17px", fontWeight: "700", color: "#111827", margin: "0 0 12px 0" }}>Misión</h3>
             <p style={{ fontSize: "14px", color: "#6B7280", lineHeight: "1.8", margin: "0" }}>
               Proveer a nuestros distribuidores cereales de calidad respaldada por estándares
               internacionales de manufactura, con la agilidad, cercanía y condiciones comerciales
@@ -84,7 +84,7 @@ export default function NosotrosPage() {
             </p>
           </div>
           <div style={{ background: "#F9FAFB", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "28px 24px" }}>
-            <h3 style={{ fontFamily: "Georgia, serif", fontSize: "17px", fontWeight: "700", color: "#111827", margin: "0 0 12px 0" }}>Visión</h3>
+            <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "17px", fontWeight: "700", color: "#111827", margin: "0 0 12px 0" }}>Visión</h3>
             <p style={{ fontSize: "14px", color: "#6B7280", lineHeight: "1.8", margin: "0" }}>
               Convertirnos en la marca de cereales de mayor confianza para el distribuidor
               venezolano, reconocida por ofrecer la calidad de una industria consolidada con

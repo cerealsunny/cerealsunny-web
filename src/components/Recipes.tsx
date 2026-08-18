@@ -85,7 +85,7 @@ export default function Recipes() {
                   }}>{!r.img && <r.Icon size={44} />}</div>
                 <div style={{ padding: "14px" }}>
                   <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "10px", fontWeight: "700", textTransform: "uppercase", padding: "3px 7px", borderRadius: "4px", marginBottom: "6px" }}>{r.category}</span>
-                  <h3 style={{ fontFamily: "Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>
+                  <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>
                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                     <span style={{ fontSize: "12px", color: "#6B7280" }}>⏱ {r.time}</span>
                     <span style={{ fontSize: "12px", color: "#6B7280" }}>👥 {r.servings}</span>

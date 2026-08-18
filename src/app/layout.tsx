@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Barlow_Condensed } from "next/font/google";
+import { Playfair_Display, Barlow_Condensed, Poetsen_One } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -13,6 +13,12 @@ const barlow = Barlow_Condensed({
   variable: "--font-barlow",
 });
 
+const poetsen = Poetsen_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-poetsen",
+});
+
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 
@@ -20,6 +26,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Cereal Sunny",
   description: "Fabricante de cereales de alta calidad para distribuidores.",
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     title: "Cereal Sunny — Fabricante de Cereales para Distribuidores",
     description:
@@ -50,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${playfair.variable} ${barlow.variable}`}>
+    <html lang="es" className={`${playfair.variable} ${barlow.variable} ${poetsen.variable}`}>
       <body>
         <script
           type="application/ld+json"

@@ -80,7 +80,7 @@ export default function Products() {
               {/* Text content */}
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "28px 26px" }}>
                 <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 10px", borderRadius: "4px", marginBottom: "12px", border: "1px solid rgba(255,255,255,0.25)" }}>{p.category}</span>
-                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
+                <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "24px", fontWeight: "900", color: "#ffffff", margin: "0 0 8px 0", letterSpacing: "-0.01em" }}>{p.name}</h3>
                 <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", margin: "0 0 16px 0", lineHeight: "1.5", maxWidth: "280px" }}>{p.subtitle}</p>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#F5A623", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}>
                   Ver ficha técnica →

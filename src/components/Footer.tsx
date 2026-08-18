@@ -44,7 +44,7 @@ export default function Footer() {
                 <circle cx="22" cy="22" r="12" fill="url(#footerSun)" />
               </svg>
               <div>
-                <div style={{ fontFamily: "Georgia, serif", fontWeight: "900", fontSize: "20px", color: "#ffffff", letterSpacing: "0.04em", lineHeight: "1" }}>
+                <div style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontWeight: "900", fontSize: "20px", color: "#ffffff", letterSpacing: "0.04em", lineHeight: "1" }}>
                   SUNNY<sup style={{ fontSize: "8px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
                 </div>
                 <div style={{ fontSize: "9px", letterSpacing: "0.2em", color: "#93c5fd", textTransform: "uppercase", marginTop: "2px" }}>Cereal</div>

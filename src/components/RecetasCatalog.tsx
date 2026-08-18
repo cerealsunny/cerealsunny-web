@@ -27,7 +27,7 @@ export default function RecetasCatalog() {
               <div style={{ position: "absolute", inset: "0", background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.1) 55%, transparent 75%)" }} />
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", padding: "18px 20px" }}>
                 <span style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", color: "#ffffff", fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", padding: "4px 9px", borderRadius: "4px", marginBottom: "10px", border: "1px solid rgba(255,255,255,0.25)" }}>{r.category}</span>
-                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: "900", color: "#ffffff", margin: "0", letterSpacing: "-0.01em", lineHeight: "1.25" }}>{r.name}</h3>
+                <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "18px", fontWeight: "900", color: "#ffffff", margin: "0", letterSpacing: "-0.01em", lineHeight: "1.25" }}>{r.name}</h3>
               </div>
             </div>
 

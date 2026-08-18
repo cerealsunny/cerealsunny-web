@@ -100,7 +100,7 @@ export default function CreditosPage() {
             Cereal Sunny · Sitio Oficial
           </div>
           <h1 style={{
-            fontFamily: "Georgia, serif",
+            fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif",
             fontSize: "2.4rem",
             fontWeight: "900",
             color: "#ffffff",
@@ -141,13 +141,13 @@ export default function CreditosPage() {
               fontWeight: "900",
               color: "#1B4F8A",
               flexShrink: 0,
-              fontFamily: "Georgia, serif",
+              fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif",
             }}>
               DV
             </div>
             <div>
               <h2 style={{
-                fontFamily: "Georgia, serif",
+                fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif",
                 fontSize: "22px",
                 fontWeight: "700",
                 color: "#ffffff",
@@ -167,7 +167,7 @@ export default function CreditosPage() {
               Desarrollado
             </div>
             <div style={{
-              fontFamily: "Georgia, serif",
+              fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif",
               fontSize: "22px",
               fontWeight: "700",
               color: "#F5A623",

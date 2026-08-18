@@ -62,7 +62,7 @@ export default function ProcessComparison() {
           <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "14px" }}>
             Nuestro Proceso
           </span>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 14px 0", letterSpacing: "-0.01em" }}>
+          <h2 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 14px 0", letterSpacing: "-0.01em" }}>
             De Grano a Hojuela: <span style={{ color: "#39a4b4" }}>Así Se Hace la Diferencia</span>
           </h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "560px", margin: "0 auto", lineHeight: "1.7" }}>
@@ -107,7 +107,7 @@ export default function ProcessComparison() {
                   position: "absolute",
                   top: "10px",
                   left: "10px",
-                  fontFamily: "Georgia, serif",
+                  fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif",
                   fontSize: "11px",
                   fontWeight: "700",
                   color: "#ffffff",
@@ -118,7 +118,7 @@ export default function ProcessComparison() {
                 }}>PASO {s.n}</span>
               </div>
               <div style={{ padding: "20px 20px 26px" }}>
-                <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0" }}>{s.title}</h3>
+                <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0" }}>{s.title}</h3>
                 <p style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.6", margin: "0" }}>{s.desc}</p>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function ProcessComparison() {
           opacity: visible ? 1 : 0,
           transition: "opacity 1s ease 0.5s",
         }}>
-          <div style={{ fontFamily: "Georgia, serif", fontWeight: "900", fontSize: "clamp(2rem, 6vw, 3.6rem)", color: "#1B4F8A", letterSpacing: "-0.02em", lineHeight: "1.15" }}>
+          <div style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontWeight: "900", fontSize: "clamp(2rem, 6vw, 3.6rem)", color: "#1B4F8A", letterSpacing: "-0.02em", lineHeight: "1.15" }}>
             1 GRANO <span style={{ color: "#F5A623" }}>→</span> 3 HOJUELAS REALES
           </div>
           <p style={{ fontSize: "14px", color: "#6B7280", maxWidth: "480px", margin: "16px auto 0", lineHeight: "1.7" }}>

@@ -1,10 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import Faq from "@/components/Faq";
 import { IconPhone, IconMail, IconPin } from "@/components/Icons";
 import { SITE_URL } from "@/lib/site";
-import { faqs } from "@/data/faq";
 
 export const metadata = {
   title: "Contacto · Cereal Sunny",
@@ -26,29 +24,12 @@ const breadcrumbSchema = {
   ],
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
 export default function ContactoPage() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
       <section style={{
@@ -60,7 +41,7 @@ export default function ContactoPage() {
           <span style={{ display: "inline-block", fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.2em", color: "#F5A623", marginBottom: "16px" }}>
             Contacto
           </span>
-          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0" }}>
+          <h1 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0" }}>
             Hablemos de Distribución
           </h1>
         </div>
@@ -76,7 +57,7 @@ export default function ContactoPage() {
           <div style={{ flex: "1 1 340px", minWidth: "280px", display: "flex", flexDirection: "column", gap: "20px" }}>
 
             <div style={{ background: "#1B4F8A", borderRadius: "14px", padding: "28px" }}>
-              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#ffffff", margin: "0 0 18px 0" }}>Contacto Directo</h3>
+              <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "16px", fontWeight: "700", color: "#ffffff", margin: "0 0 18px 0" }}>Contacto Directo</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
                 <a href="tel:+582129539897" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#ffffff", textDecoration: "none", fontWeight: "600" }}>
                   <IconPhone size={16} /> +58 212-953.9897
@@ -104,17 +85,6 @@ export default function ContactoPage() {
 
           </div>
 
-        </div>
-
-        <div style={{ marginTop: "80px" }}>
-          <div style={{ textAlign: "center", marginBottom: "32px" }}>
-            <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: "900", color: "#111827", margin: "0" }}>
-              Preguntas Frecuentes
-            </h2>
-          </div>
-          <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-            <Faq />
-          </div>
         </div>
       </section>
       <Footer />
