@@ -5,11 +5,11 @@ import { IconPhone, IconMail, IconPin } from "@/components/Icons";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Contacto · Cereal Sunny",
+  title: "Contacto — Cereal Sunny | Distribuidores y Consultas",
   description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
   alternates: { canonical: "/contacto" },
   openGraph: {
-    title: "Contacto · Cereal Sunny",
+    title: "Contacto — Cereal Sunny | Distribuidores y Consultas",
     description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
     url: `${SITE_URL}/contacto`,
   },

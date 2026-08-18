@@ -5,11 +5,11 @@ import { recipes } from "@/data/recipes";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Recetas · Cereal Sunny",
+  title: "Recetas con Cereal Sunny — Ideas Fáciles para tu Familia",
   description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
   alternates: { canonical: "/recetas" },
   openGraph: {
-    title: "Recetas · Cereal Sunny",
+    title: "Recetas con Cereal Sunny — Ideas Fáciles para tu Familia",
     description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
     url: `${SITE_URL}/recetas`,
   },

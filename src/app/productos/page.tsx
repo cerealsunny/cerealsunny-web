@@ -5,11 +5,11 @@ import { products } from "@/data/products";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Productos · Cereal Sunny",
+  title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes | Cereal Sunny",
   description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
   alternates: { canonical: "/productos" },
   openGraph: {
-    title: "Productos · Cereal Sunny",
+    title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes | Cereal Sunny",
     description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
     url: `${SITE_URL}/productos`,
   },
@@ -22,6 +22,8 @@ const productSchemas = products.map((p) => ({
   description: p.description,
   image: p.img ? `${SITE_URL}${p.img}` : undefined,
   brand: { "@type": "Brand", name: "Cereal Sunny" },
+  category: "Cereales de desayuno",
+  countryOfOrigin: { "@type": "Country", name: "Venezuela" },
 }));
 
 const breadcrumbSchema = {

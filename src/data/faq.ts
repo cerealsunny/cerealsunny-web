@@ -5,33 +5,28 @@ export type FaqItem = {
 
 export const faqs: FaqItem[] = [
   {
-    question: "¿Cereal Sunny vende al consumidor final?",
+    question: "¿Dónde puedo comprar Cereal Sunny?",
     answer:
-      "No. Cereal Sunny vende exclusivamente a distribuidores mayoristas en Venezuela y Latinoamérica. No manejamos venta directa al público.",
+      "No vendemos al consumidor final. Cereal Sunny se distribuye exclusivamente a través de distribuidores mayoristas en Venezuela y Latinoamérica.",
   },
   {
-    question: "¿Cómo se elaboran los cereales Cereal Sunny?",
+    question: "¿Qué hace diferente a Cereal Sunny de otros cereales?",
     answer:
-      "Nuestras hojuelas se laminan grano por grano a partir de maíz real descascarillado y desgerminado — no son masa moldeada por extrusión. Es el mismo proceso que usan las marcas líderes del mercado cerealero.",
+      "Nuestras hojuelas se fabrican con laminado grano por grano, no con masa extruida. Cada hojuela nace de un grano real de maíz.",
   },
   {
-    question: "¿Los productos tienen registro sanitario?",
+    question: "¿Contiene conservantes o grasas trans?",
     answer:
-      "Sí. Toda la línea Cereal Sunny (Sunny Flakes, Sunny Sugar y Sunny Choco Flakes) está registrada ante el SACS, ente adscrito al Ministerio del Poder Popular para la Salud (MPPS).",
+      "No. Cero grasas trans y sin conservantes añadidos en toda nuestra línea.",
   },
   {
-    question: "¿Dónde se fabrican los cereales?",
+    question: "¿Cuál es el pedido mínimo para distribuidores?",
     answer:
-      "En Maracay, estado Aragua, Venezuela, bajo Centerium Venezolana C.A. (Rif. J-506658038).",
+      "El pedido mínimo es de 1,000 cajas. Cada caja contiene 24 estuches. Se pueden mezclar las 3 presentaciones.",
   },
   {
-    question: "¿Qué productos ofrece Cereal Sunny?",
+    question: "¿Cómo me convierto en distribuidor?",
     answer:
-      "Tres líneas: Sunny Flakes (hojuelas de maíz clásicas), Sunny Sugar (glaseadas con azúcar) y Sunny Choco Flakes (bañadas en chocolate). Puedes ver la ficha técnica completa de cada una en la página de Productos.",
-  },
-  {
-    question: "¿Cómo puedo convertirme en distribuidor de Cereal Sunny?",
-    answer:
-      "Escríbenos por teléfono, correo o el formulario de esta página. Nuestro equipo comercial te da información de catálogo, condiciones y disponibilidad para tu zona.",
+      "Contáctanos a info@cerealsunny.com o al +58 212-953.9897 y te enviaremos toda la información.",
   },
 ];

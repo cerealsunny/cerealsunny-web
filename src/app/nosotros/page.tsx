@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Sobre Sunny · Cereal Sunny",
+  title: "Sobre Sunny — Fabricantes de Cereales de Maíz en Venezuela",
   description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
   alternates: { canonical: "/nosotros" },
   openGraph: {
-    title: "Sobre Sunny · Cereal Sunny",
+    title: "Sobre Sunny — Fabricantes de Cereales de Maíz en Venezuela",
     description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
     url: `${SITE_URL}/nosotros`,
   },
