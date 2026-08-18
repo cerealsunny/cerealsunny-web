@@ -1,15 +1,34 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Sobre Sunny · Cereal Sunny",
   description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
   alternates: { canonical: "/nosotros" },
+  openGraph: {
+    title: "Sobre Sunny · Cereal Sunny",
+    description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
+    url: `${SITE_URL}/nosotros`,
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Nosotros", item: `${SITE_URL}/nosotros` },
+  ],
 };
 
 export default function NosotrosPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section style={{
         maxWidth: "800px",

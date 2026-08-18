@@ -8,6 +8,11 @@ export const metadata = {
   title: "Productos · Cereal Sunny",
   description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
   alternates: { canonical: "/productos" },
+  openGraph: {
+    title: "Productos · Cereal Sunny",
+    description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
+    url: `${SITE_URL}/productos`,
+  },
 };
 
 const productSchemas = products.map((p) => ({
@@ -19,6 +24,15 @@ const productSchemas = products.map((p) => ({
   brand: { "@type": "Brand", name: "Cereal Sunny" },
 }));
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Productos", item: `${SITE_URL}/productos` },
+  ],
+};
+
 export default function ProductosPage() {
   return (
     <main>
@@ -29,6 +43,10 @@ export default function ProductosPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section style={{
         maxWidth: "1000px",

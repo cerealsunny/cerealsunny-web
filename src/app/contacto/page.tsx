@@ -1,17 +1,55 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import Faq from "@/components/Faq";
 import { IconPhone, IconMail, IconPin } from "@/components/Icons";
+import { SITE_URL } from "@/lib/site";
+import { faqs } from "@/data/faq";
 
 export const metadata = {
   title: "Contacto · Cereal Sunny",
   description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
   alternates: { canonical: "/contacto" },
+  openGraph: {
+    title: "Contacto · Cereal Sunny",
+    description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
+    url: `${SITE_URL}/contacto`,
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Contacto", item: `${SITE_URL}/contacto` },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
 };
 
 export default function ContactoPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
       <section style={{
         maxWidth: "1100px",
@@ -66,6 +104,17 @@ export default function ContactoPage() {
 
           </div>
 
+        </div>
+
+        <div style={{ marginTop: "80px" }}>
+          <div style={{ textAlign: "center", marginBottom: "32px" }}>
+            <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: "900", color: "#111827", margin: "0" }}>
+              Preguntas Frecuentes
+            </h2>
+          </div>
+          <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+            <Faq />
+          </div>
         </div>
       </section>
       <Footer />

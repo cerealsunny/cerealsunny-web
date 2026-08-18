@@ -47,8 +47,8 @@ export const products: Producto[] = [
       ],
       ingredientes: "Maíz Descascarillado y Desgerminado, Azúcar Refinada, Malta, Sal Refinada.",
       alergenos: "El maíz utilizado en este producto contiene trazas de soya.",
-      fabricante: "Centerium Venezolana C.A. · Rif. J-506658038 · San Jacinto, Maracay, Edo. Aragua, Venezuela.",
-      registroSanitario: null,
+      fabricante: "Centerium Venezolana C.A. · Rif. J-506658038 · Av. Bolívar Este N.52, Zona Ind. San Jacinto, Maracay, Edo. Aragua.",
+      registroSanitario: "Registrado ante el SACS, ente adscrito al MPPS, bajo el número A-175.828.",
     },
   },
   {
@@ -76,8 +76,8 @@ export const products: Producto[] = [
       ],
       ingredientes: "Maíz Descascarillado y Desgerminado, Azúcar Refinada, Malta, Sal Refinada.",
       alergenos: "El maíz utilizado en este producto contiene trazas de soya.",
-      fabricante: "Centerium Venezolana C.A. · Rif. J-506658038 · San Jacinto, Maracay, Edo. Aragua, Venezuela.",
-      registroSanitario: null,
+      fabricante: "Centerium Venezolana C.A. · Rif. J-506658038 · Av. Bolívar Este N.52, Zona Ind. San Jacinto, Maracay, Edo. Aragua.",
+      registroSanitario: "Registrado ante el SACS, ente adscrito al MPPS, bajo el número A-175.830.",
     },
   },
   {

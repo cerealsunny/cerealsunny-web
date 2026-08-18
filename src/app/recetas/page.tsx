@@ -8,6 +8,11 @@ export const metadata = {
   title: "Recetas · Cereal Sunny",
   description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
   alternates: { canonical: "/recetas" },
+  openGraph: {
+    title: "Recetas · Cereal Sunny",
+    description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
+    url: `${SITE_URL}/recetas`,
+  },
 };
 
 function parseTimeToISO8601(time: string): string | undefined {
@@ -22,6 +27,7 @@ const recipeSchemas = recipes.map((r) => ({
   name: r.name,
   description: r.description,
   image: r.img ? `${SITE_URL}${r.img}` : undefined,
+  author: { "@type": "Organization", name: "Cereal Sunny" },
   recipeCategory: r.category,
   recipeYield: r.servings,
   totalTime: parseTimeToISO8601(r.time),
@@ -31,6 +37,15 @@ const recipeSchemas = recipes.map((r) => ({
     text: paso,
   })),
 }));
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Recetas", item: `${SITE_URL}/recetas` },
+  ],
+};
 
 export default function RecetasPage() {
   return (
@@ -42,6 +57,10 @@ export default function RecetasPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section style={{
         maxWidth: "1000px",

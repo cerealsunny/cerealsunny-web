@@ -94,6 +94,12 @@ export const IconPin = ({ size = 16 }: IconProps) => (
   </svg>
 );
 
+export const IconChevronDown = ({ size = 16 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+
 export const IconLeaf = ({ size = 24 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4 20c8 0 14-6 14-14 0-1 0-2-.2-3-6 0-12 3-13.5 9C3.5 15 4 20 4 20z" />
