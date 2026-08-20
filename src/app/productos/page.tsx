@@ -5,7 +5,7 @@ import { products } from "@/data/products";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes | Cereal Sunny",
+  title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes",
   description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
   alternates: {
     canonical: "/productos",

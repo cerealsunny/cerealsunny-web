@@ -14,11 +14,13 @@ const volumenes = [
 ];
 
 function FloatingField({
+  id,
   label,
   value,
   onChange,
   textarea = false,
 }: {
+  id: string;
   label: string;
   value: string;
   onChange: (v: string) => void;
@@ -58,6 +60,7 @@ function FloatingField({
     <div style={{ position: "relative" }}>
       {textarea ? (
         <textarea
+          id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onFocus={() => setFocused(true)}
@@ -67,6 +70,7 @@ function FloatingField({
         />
       ) : (
         <input
+          id={id}
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
@@ -75,7 +79,7 @@ function FloatingField({
           style={shared}
         />
       )}
-      <label style={labelStyle}>{label}</label>
+      <label htmlFor={id} style={labelStyle}>{label}</label>
     </div>
   );
 }
@@ -109,9 +113,9 @@ export default function ContactForm() {
   return (
     <div style={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "32px", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-        <FloatingField label="Nombre" value={nombre} onChange={setNombre} />
-        <FloatingField label="Empresa" value={empresa} onChange={setEmpresa} />
-        <FloatingField label="Estado / Ciudad" value={estado} onChange={setEstado} />
+        <FloatingField id="nombre" label="Nombre" value={nombre} onChange={setNombre} />
+        <FloatingField id="empresa" label="Empresa" value={empresa} onChange={setEmpresa} />
+        <FloatingField id="estado" label="Estado / Ciudad" value={estado} onChange={setEstado} />
 
         <div>
           <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6B7280", marginBottom: "10px" }}>
@@ -123,6 +127,7 @@ export default function ContactForm() {
                 key={t}
                 type="button"
                 onClick={() => setTipo(t)}
+                aria-pressed={tipo === t}
                 style={{
                   padding: "9px 16px",
                   borderRadius: "999px",
@@ -154,6 +159,7 @@ export default function ContactForm() {
                   key={v.label}
                   type="button"
                   onClick={() => setVolumen(selected ? null : full)}
+                  aria-pressed={selected}
                   style={{
                     padding: "9px 14px",
                     borderRadius: "10px",
@@ -175,7 +181,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <FloatingField label="Mensaje (opcional)" value={mensaje} onChange={setMensaje} textarea />
+        <FloatingField id="mensaje" label="Mensaje (opcional)" value={mensaje} onChange={setMensaje} textarea />
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#166534", fontWeight: 600 }}>
           <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#166534", display: "inline-block" }} />

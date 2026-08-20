@@ -47,11 +47,11 @@ export default function Footer() {
                 <div style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontWeight: "900", fontSize: "20px", color: "#ffffff", letterSpacing: "0.04em", lineHeight: "1" }}>
                   SUNNY<sup style={{ fontSize: "8px", color: "#F5A623", verticalAlign: "super" }}>®</sup>
                 </div>
-                <div style={{ fontSize: "9px", letterSpacing: "0.2em", color: "#93c5fd", textTransform: "uppercase", marginTop: "2px" }}>Cereal</div>
+                <div style={{ fontSize: "9px", letterSpacing: "0.2em", color: "#111827", textTransform: "uppercase", marginTop: "2px" }}>Cereal</div>
               </div>
             </div>
 
-            <p style={{ fontSize: "14px", color: "#93c5fd", lineHeight: "1.7", marginBottom: "20px", maxWidth: "260px" }}>
+            <p style={{ fontSize: "14px", color: "#111827", lineHeight: "1.7", marginBottom: "20px", maxWidth: "260px" }}>
               Fabricantes de cereales de alta calidad para distribuidores mayoristas en Venezuela y Latinoamérica.
             </p>
 
@@ -62,17 +62,17 @@ export default function Footer() {
                 { Icon: IconPin, text: "Caracas, Venezuela" },
               ].map((item) => (
                 <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#93c5fd", display: "flex" }}><item.Icon size={14} /></span>
-                  <span style={{ fontSize: "13px", color: "#93c5fd" }}>{item.text}</span>
+                  <span style={{ color: "#111827", display: "flex" }}><item.Icon size={14} /></span>
+                  <span style={{ fontSize: "13px", color: "#111827" }}>{item.text}</span>
                 </div>
               ))}
             </div>
 
             <div style={{ display: "flex", gap: "14px", marginTop: "18px" }}>
               <a href="https://www.instagram.com/cerealsunny" target="_blank" rel="noopener noreferrer" aria-label="Instagram Cereal Sunny"
-                style={{ color: "#93c5fd", display: "flex", transition: "color 0.15s" }}
+                style={{ color: "#111827", display: "flex", transition: "color 0.15s" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5A623")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#93c5fd")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#111827")}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -81,9 +81,9 @@ export default function Footer() {
                 </svg>
               </a>
               <a href="https://www.tiktok.com/@cerealsunnyve" target="_blank" rel="noopener noreferrer" aria-label="TikTok Cereal Sunny"
-                style={{ color: "#93c5fd", display: "flex", transition: "color 0.15s" }}
+                style={{ color: "#111827", display: "flex", transition: "color 0.15s" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5A623")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#93c5fd")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#111827")}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M16.5 3c.4 2.3 1.9 3.9 4.5 4.1v3c-1.6 0-3-.5-4.5-1.5v6.6c0 3.6-2.9 6.3-6.4 6.1-3.2-.2-5.7-2.9-5.6-6.1.1-3.1 2.7-5.6 5.9-5.6.3 0 .6 0 .9.1v3.1c-.3-.1-.6-.2-.9-.2-1.5 0-2.8 1.2-2.8 2.7 0 1.6 1.3 2.8 2.9 2.7 1.5-.1 2.7-1.3 2.7-2.9V3h3.3z" />
@@ -95,14 +95,14 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", color: "#ffffff", marginBottom: "16px" }}>
+              <h3 style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.14em", color: "#111827", marginBottom: "16px" }}>
                 {title}
-              </h4>
+              </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {links.map((link) => (
-                  <a key={link.label} href={link.href} style={{ fontSize: "14px", color: "#93c5fd", textDecoration: "none", transition: "color 0.15s" }}
+                  <a key={link.label} href={link.href} style={{ fontSize: "14px", color: "#111827", textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5A623")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#93c5fd")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#111827")}
                   >{link.label}</a>
                 ))}
               </div>
@@ -115,15 +115,15 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: "16px 24px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-          <p style={{ fontSize: "12px", color: "#93c5fd", margin: "0" }}>
+          <p style={{ fontSize: "12px", color: "#111827", margin: "0" }}>
             © {year} Cereal Sunny. Todos los derechos reservados.
           </p>
           <a href="/creditos" style={{
-            fontSize: "12px", color: "rgba(147,197,253,0.55)", textDecoration: "none",
+            fontSize: "12px", color: "rgba(17,24,39,0.75)", textDecoration: "none",
             display: "flex", alignItems: "center", gap: "5px", transition: "color 0.2s",
           }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#F5A623")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(147,197,253,0.55)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(17,24,39,0.75)")}
           >
             <span>✦</span> Créditos de Desarrollo
           </a>

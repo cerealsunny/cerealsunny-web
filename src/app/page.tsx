@@ -12,9 +12,9 @@ import { SITE_URL } from "@/lib/site";
 import { faqs } from "@/data/faq";
 
 export const metadata = {
-  title: "Cereal Sunny — Cereales de Maíz Natural para tu Familia | Venezuela",
+  title: "Cereal Sunny — Cereales de Maíz Natural para tu Familia",
   description:
-    "Cereal Sunny: fabricante venezolano de cereales de maíz laminado — Sunny Flakes, Sunny Sugar y Sunny Choco Flakes. Venta exclusiva a distribuidores mayoristas en Venezuela.",
+    "Cereal Sunny: fabricante venezolano de cereales de maíz laminado — Sunny Flakes, Sunny Sugar y Sunny Choco Flakes. Venta exclusiva a distribuidores mayoristas.",
   alternates: {
     canonical: "/",
     languages: { "es-VE": "/", es: "/", "x-default": "/" },
