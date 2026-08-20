@@ -59,7 +59,7 @@ export default function Footer() {
               {[
                 { Icon: IconPhone, text: "+58 212-953.9897" },
                 { Icon: IconMail, text: "info@cerealsunny.com" },
-                { Icon: IconPin, text: "Caracas, Venezuela" },
+                { Icon: IconPin, text: "Av. Guaicaipuro, El Rosal, Torre Forum, Piso 8, Caracas 1060, Miranda" },
               ].map((item) => (
                 <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <span style={{ color: "#111827", display: "flex" }}><item.Icon size={14} /></span>

@@ -69,7 +69,7 @@ export default function ContactoPage() {
                   <IconMail size={16} /> info@cerealsunny.com
                 </a>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#ffffff", fontWeight: "600" }}>
-                  <IconPin size={16} /> Caracas, Venezuela
+                  <IconPin size={16} /> Av. Guaicaipuro, El Rosal, Torre Forum, Piso 8, Caracas 1060, Miranda
                 </div>
               </div>
             </div>

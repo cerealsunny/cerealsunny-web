@@ -51,7 +51,10 @@ const organizationSchema = {
   email: "info@cerealsunny.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Av. Guaicaipuro, El Rosal, Torre Forum, Piso 8",
     addressLocality: "Caracas",
+    addressRegion: "Miranda",
+    postalCode: "1060",
     addressCountry: "VE",
   },
 };
