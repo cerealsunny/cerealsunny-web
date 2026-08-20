@@ -54,7 +54,7 @@ export default function ChatWidget() {
           width: "56px",
           height: "56px",
           borderRadius: "50%",
-          background: "#39a4b4",
+          background: "#1f7684",
           border: "none",
           cursor: "pointer",
           zIndex: 9999,
@@ -97,7 +97,7 @@ export default function ChatWidget() {
         }}>
 
           {/* Header */}
-          <div style={{ background: "#39a4b4", padding: "14px 16px", display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ background: "#1f7684", padding: "14px 16px", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px" }}>☀️</div>
             <div>
               <div style={{ color: "#fff", fontWeight: "700", fontSize: "14px" }}>Asistente Sunny</div>
@@ -112,7 +112,7 @@ export default function ChatWidget() {
           <div style={{ padding: "10px 12px", display: "flex", gap: "6px", flexWrap: "wrap", borderBottom: "1px solid #f0f0f0" }}>
             {["¿Cómo distribuir?", "Ver productos", "Contacto"].map((q) => (
               <button key={q} onClick={() => sendMessage(q)}
-                style={{ background: "#f0f9fa", border: "1px solid #39a4b4", color: "#39a4b4", borderRadius: "20px", padding: "4px 10px", fontSize: "11px", cursor: "pointer", fontWeight: "600" }}
+                style={{ background: "#f0f9fa", border: "1px solid #1f7684", color: "#1f7684", borderRadius: "20px", padding: "4px 10px", fontSize: "11px", cursor: "pointer", fontWeight: "600" }}
               >{q}</button>
             ))}
           </div>
@@ -125,7 +125,7 @@ export default function ChatWidget() {
                   maxWidth: "82%",
                   padding: "10px 13px",
                   borderRadius: msg.role === "user" ? "14px 14px 4px 14px" : "14px 14px 14px 4px",
-                  background: msg.role === "user" ? "#39a4b4" : "#f5f5f5",
+                  background: msg.role === "user" ? "#1f7684" : "#f5f5f5",
                   color: msg.role === "user" ? "#fff" : "#111827",
                   fontSize: "13px",
                   lineHeight: "1.5",
@@ -139,7 +139,7 @@ export default function ChatWidget() {
                 <div style={{ background: "#f5f5f5", borderRadius: "14px 14px 14px 4px", padding: "12px 16px", display: "flex", gap: "5px", alignItems: "center" }}>
                   {[0, 1, 2].map((i) => (
                     <span key={i} style={{
-                      width: "7px", height: "7px", borderRadius: "50%", background: "#39a4b4", display: "inline-block",
+                      width: "7px", height: "7px", borderRadius: "50%", background: "#1f7684", display: "inline-block",
                       animation: `bounce 0.9s ${i * 0.2}s infinite`
                     }} />
                   ))}
@@ -165,7 +165,7 @@ export default function ChatWidget() {
             <button onClick={() => sendMessage()} disabled={loading || !input.trim()}
               style={{
                 width: "36px", height: "36px", borderRadius: "50%",
-                background: loading || !input.trim() ? "#ccc" : "#39a4b4",
+                background: loading || !input.trim() ? "#ccc" : "#1f7684",
                 border: "none", cursor: loading || !input.trim() ? "default" : "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { IconCorn, IconSparkle, IconChocolateBar } from "./Icons";
 
 const products = [
@@ -15,7 +16,7 @@ export default function Products() {
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <a href="/productos" style={{
             display: "inline-block",
-            background: "#39a4b4",
+            background: "#1f7684",
             color: "#ffffff",
             fontSize: "13px",
             fontWeight: "700",
@@ -25,11 +26,11 @@ export default function Products() {
             borderRadius: "6px",
             marginBottom: "20px",
             textDecoration: "none",
-            border: "2px solid #39a4b4",
+            border: "2px solid #1f7684",
             transition: "background 0.2s, color 0.2s, border-color 0.2s",
           }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Catálogo</a>
           <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Nuestra Línea de Cereales</h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "480px", margin: "0 auto", lineHeight: "1.6" }}>Hojuelas de maíz real, laminadas grano por grano — no masa moldeada.</p>
@@ -55,17 +56,24 @@ export default function Products() {
               }}
             >
               {/* Background */}
-              <div
-                className="product-bg"
-                role={p.img ? "img" : undefined}
-                aria-label={p.img ? p.alt : undefined}
-                style={{
-                  position: "absolute", inset: "0",
-                  background: p.img
-                    ? `url('${p.img}') center/cover no-repeat`
-                    : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
-                  transition: "transform 0.4s ease",
-                }} />
+              {p.img ? (
+                <Image
+                  src={p.img}
+                  alt={p.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 340px"
+                  className="product-bg"
+                  style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+                />
+              ) : (
+                <div
+                  className="product-bg"
+                  style={{
+                    position: "absolute", inset: "0",
+                    background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+                    transition: "transform 0.4s ease",
+                  }} />
+              )}
 
               {/* Icon watermark — only when there's no product photo yet */}
               {!p.img && (

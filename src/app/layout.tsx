@@ -20,16 +20,16 @@ const poetsen = Poetsen_One({
 });
 
 import "./globals.css";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SITE_IS_INDEXABLE } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Cereal Sunny",
   description: "Fabricante de cereales de alta calidad para distribuidores.",
   // noindex intencional: este dominio es el staging de Vercel, no el dominio final.
-  // Cambiar a index:true cuando cerealsunny.com esté conectado (ver cutover en SITE_URL).
+  // Cambiar SITE_IS_INDEXABLE a true cuando cerealsunny.com esté conectado.
   robots: {
-    index: false,
+    index: SITE_IS_INDEXABLE,
     follow: true,
   },
   openGraph: {

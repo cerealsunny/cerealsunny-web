@@ -17,6 +17,7 @@ export type Producto = {
   color: string;
   Icon: typeof IconCorn;
   img?: string | null;
+  alt: string;
   description: string;
   ficha: FichaTecnica;
 };
@@ -28,6 +29,7 @@ export const products: Producto[] = [
     color: "#1B4F8A",
     Icon: IconCorn,
     img: "/images/productos/sunny-flakes.jpg",
+    alt: "Hojuelas de maíz Sunny Flakes doradas y crocantes",
     description:
       "Hojuelas de maíz tostado, doradas y crocantes. Cada grano de maíz se descascarilla y se parte en tres piezas reales de grano — cada una se convierte en una hojuela. Sin masa, sin moldes: el sabor clásico de siempre.",
     ficha: {
@@ -57,6 +59,7 @@ export const products: Producto[] = [
     color: "#F5A623",
     Icon: IconSparkle,
     img: "/images/productos/sunny-sugar.jpg",
+    alt: "Hojuelas de maíz azucaradas Sunny Sugar",
     description:
       "La misma hojuela de maíz real, glaseada con azúcar para un crunch dulce que nunca falla en el punto de venta.",
     ficha: {
@@ -86,6 +89,7 @@ export const products: Producto[] = [
     color: "#6b3f22",
     Icon: IconChocolateBar,
     img: "/images/productos/sunny-choco-flakes.jpg",
+    alt: "Hojuelas de maíz bañadas en chocolate Sunny Choco Flakes",
     description:
       "Hojuelas de maíz real bañadas en chocolate, el antojo favorito de los más pequeños de la casa.",
     ficha: {

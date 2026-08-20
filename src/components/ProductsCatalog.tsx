@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { products } from "@/data/products";
 
 export default function ProductsCatalog() {
@@ -13,12 +14,14 @@ export default function ProductsCatalog() {
         return (
           <div key={p.name}>
             <div style={{ position: "relative", aspectRatio: "2 / 3", borderRadius: "14px", overflow: "hidden" }}>
-              <div style={{
-                position: "absolute", inset: "0",
-                background: p.img
-                  ? `url('${p.img}') center/cover no-repeat`
-                  : `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
-              }} />
+              {p.img ? (
+                <Image src={p.img} alt={p.alt} fill sizes="(max-width: 768px) 100vw, 340px" style={{ objectFit: "cover" }} />
+              ) : (
+                <div style={{
+                  position: "absolute", inset: "0",
+                  background: `linear-gradient(155deg, ${p.color} 0%, #0a1428 130%)`,
+                }} />
+              )}
               {!p.img && (
                 <div style={{ position: "absolute", top: "28px", right: "22px", color: "rgba(255,255,255,0.18)" }}>
                   <p.Icon size={100} />

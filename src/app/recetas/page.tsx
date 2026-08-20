@@ -90,7 +90,7 @@ export default function RecetasPage() {
             ¿Interesado en distribuir Sunny? Contáctanos directamente.
           </p>
           <a href="tel:+582129539897" style={{
-            display: "inline-flex", alignItems: "center", background: "#39a4b4", color: "#ffffff",
+            display: "inline-flex", alignItems: "center", background: "#1f7684", color: "#ffffff",
             fontWeight: "800", fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.1em",
             padding: "14px 28px", borderRadius: "6px", textDecoration: "none",
           }}>

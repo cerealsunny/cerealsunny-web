@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "./Icons";
 
 const ingredients = [
@@ -17,7 +18,7 @@ function IngredientCard({ item }: { item: typeof ingredients[0] }) {
       onMouseLeave={(e) => { const o = e.currentTarget.querySelector(".overlay") as HTMLElement; if (o) o.style.opacity = "0"; }}
     >
       {item.img ? (
-        <div role="img" aria-label={item.alt} style={{ width: "100%", height: "100%", background: `url('${item.img}') center/cover no-repeat` }} />
+        <Image src={item.img} alt={item.alt} fill sizes="(max-width: 768px) 50vw, 20vw" style={{ objectFit: "cover" }} />
       ) : (
         <div style={{ width: "100%", height: "100%", background: item.bg, display: "flex", alignItems: "center", justifyContent: "center", color: item.badgeColor }}><Icon size={64} /></div>
       )}
@@ -40,7 +41,7 @@ export default function Ingredients() {
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <a href="/ingredientes" style={{
             display: "inline-block",
-            background: "#39a4b4",
+            background: "#1f7684",
             color: "#ffffff",
             fontSize: "13px",
             fontWeight: "700",
@@ -50,11 +51,11 @@ export default function Ingredients() {
             borderRadius: "6px",
             marginBottom: "20px",
             textDecoration: "none",
-            border: "2px solid #39a4b4",
+            border: "2px solid #1f7684",
             transition: "background 0.2s, color 0.2s, border-color 0.2s",
           }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Ingredientes</a>
           <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Calidad desde el Origen</h2>
         </div>

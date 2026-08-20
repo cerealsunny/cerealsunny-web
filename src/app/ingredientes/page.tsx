@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "@/components/Icons";
 
 export const metadata = {
@@ -12,10 +13,10 @@ export const metadata = {
 };
 
 const ingredients = [
-  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", color: "#1B4F8A", Icon: IconCorn, img: "/images/ingredientes/maiz-descascarillado.jpg", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante." },
-  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", color: "#92400e", Icon: IconSugarCrystal, img: "/images/ingredientes/azucar-refinada.jpg", description: "Aporta el dulzor característico de nuestra presentación azucarada." },
-  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", color: "#7c3aed", Icon: IconCacao, img: "/images/ingredientes/cacao-en-polvo.jpg", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate." },
-  { name: "Malta", badge: "Presente en la Línea", color: "#166534", Icon: IconWheat, img: "/images/ingredientes/malta.jpg", description: "Saborizante natural de cereal presente en las tres presentaciones." },
+  { name: "Maíz Descascarillado y Desgerminado", badge: "Base de la Línea", color: "#1B4F8A", Icon: IconCorn, img: "/images/ingredientes/maiz-descascarillado.jpg", alt: "Grano de maíz descascarillado y desgerminado, materia prima de las hojuelas Sunny", description: "Ingrediente principal de las tres presentaciones, tostado hasta lograr la hojuela crocante." },
+  { name: "Azúcar Refinada", badge: "Sunny Sugar Flakes", color: "#92400e", Icon: IconSugarCrystal, img: "/images/ingredientes/azucar-refinada.jpg", alt: "Azúcar refinada, ingrediente de Sunny Sugar Flakes", description: "Aporta el dulzor característico de nuestra presentación azucarada." },
+  { name: "Cacao en Polvo", badge: "Sunny Choco Flakes", color: "#7c3aed", Icon: IconCacao, img: "/images/ingredientes/cacao-en-polvo.jpg", alt: "Cacao en polvo, ingrediente de Sunny Choco Flakes", description: "Junto al color chocolate, da su sabor y tono a la presentación de chocolate." },
+  { name: "Malta", badge: "Presente en la Línea", color: "#166534", Icon: IconWheat, img: "/images/ingredientes/malta.jpg", alt: "Malta, saborizante natural de cereal", description: "Saborizante natural de cereal presente en las tres presentaciones." },
 ];
 
 export default function IngredientesPage() {
@@ -46,12 +47,14 @@ export default function IngredientesPage() {
               position: "relative", aspectRatio: "4 / 3", borderRadius: "14px", overflow: "hidden",
               boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: "1px solid #F0F0F0",
             }}>
-              <div style={{
-                position: "absolute", inset: "0",
-                background: item.img
-                  ? `url('${item.img}') center/cover no-repeat`
-                  : `linear-gradient(155deg, ${item.color} 0%, #0a1428 130%)`,
-              }} />
+              {item.img ? (
+                <Image src={item.img} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 340px" style={{ objectFit: "cover" }} />
+              ) : (
+                <div style={{
+                  position: "absolute", inset: "0",
+                  background: `linear-gradient(155deg, ${item.color} 0%, #0a1428 130%)`,
+                }} />
+              )}
               {!item.img && (
                 <div style={{ position: "absolute", top: "20px", right: "18px", color: "rgba(255,255,255,0.18)" }}>
                   <item.Icon size={80} />
@@ -72,7 +75,7 @@ export default function IngredientesPage() {
             ¿Quieres conocer más sobre nuestros procesos de calidad? Contáctanos directamente.
           </p>
           <a href="tel:+582129539897" style={{
-            display: "inline-flex", alignItems: "center", background: "#39a4b4", color: "#ffffff",
+            display: "inline-flex", alignItems: "center", background: "#1f7684", color: "#ffffff",
             fontWeight: "800", fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.1em",
             padding: "14px 28px", borderRadius: "6px", textDecoration: "none",
           }}>

@@ -63,7 +63,7 @@ export default function ProcessComparison() {
             Nuestro Proceso
           </span>
           <h2 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "clamp(1.9rem, 4vw, 2.8rem)", fontWeight: "900", color: "#111827", margin: "0 0 14px 0", letterSpacing: "-0.01em" }}>
-            De Grano a Hojuela: <span style={{ color: "#39a4b4" }}>Así Se Hace la Diferencia</span>
+            De Grano a Hojuela: <span style={{ color: "#1f7684" }}>Así Se Hace la Diferencia</span>
           </h2>
           <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "560px", margin: "0 auto", lineHeight: "1.7" }}>
             No todos los cereales de maíz se fabrican igual. Esto es lo que nos separa.

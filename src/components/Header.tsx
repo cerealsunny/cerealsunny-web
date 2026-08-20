@@ -54,7 +54,7 @@ export default function Header() {
 
       {/* Main row — single tier: logo + nav + contact, bounded so it never stretches edge-to-edge on wide screens */}
       <div style={{
-        background: scrolled ? "#2a7d8c" : "#39a4b4",
+        background: scrolled ? "#175f6a" : "#1f7684",
         borderBottom: "3px solid #F5A623",
         boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.35)" : "none",
         transition: "all 0.3s ease",
@@ -158,7 +158,7 @@ export default function Header() {
 
       {/* Mobile dropdown menu */}
       {isMobile && menuOpen && (
-        <div style={{ background: "#2a7d8c", borderBottom: "1px solid rgba(245,166,35,0.3)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: "0" }}>
+        <div style={{ background: "#175f6a", borderBottom: "1px solid rgba(245,166,35,0.3)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: "0" }}>
           {navLinks.map((link, index) => (
             <div key={link.href}>
               <Link href={link.href} onClick={() => setMenuOpen(false)} style={{

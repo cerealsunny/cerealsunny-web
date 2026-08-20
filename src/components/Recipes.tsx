@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import { IconBowl, IconChicken, IconChocolateBar, IconChocolateSwirl, IconParfait } from "./Icons";
 
 const recipes = [
@@ -37,7 +38,7 @@ export default function Recipes() {
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <a href="/recetas" style={{
             display: "inline-block",
-            background: "#39a4b4",
+            background: "#1f7684",
             color: "#ffffff",
             fontSize: "13px",
             fontWeight: "700",
@@ -47,11 +48,11 @@ export default function Recipes() {
             borderRadius: "6px",
             marginBottom: "20px",
             textDecoration: "none",
-            border: "2px solid #39a4b4",
+            border: "2px solid #1f7684",
             transition: "background 0.2s, color 0.2s, border-color 0.2s",
           }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F5A623"; (e.currentTarget as HTMLAnchorElement).style.color = "#1B4F8A"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#39a4b4"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1f7684"; (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff"; }}
           >Recetas</a>
           <h2 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", color: "#1a6b78", margin: "0", letterSpacing: "-0.01em" }}>Recetas fáciles de preparar</h2>
         </div>
@@ -76,13 +77,18 @@ export default function Recipes() {
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
                 <div
-                  role={r.img ? "img" : undefined}
-                  aria-label={r.img ? r.alt : undefined}
                   style={{
+                    position: "relative",
                     height: "130px",
-                    background: r.img ? `url('${r.img}') center/cover no-repeat` : r.bgColor,
+                    background: r.img ? undefined : r.bgColor,
                     display: "flex", alignItems: "center", justifyContent: "center", color: r.badgeColor,
-                  }}>{!r.img && <r.Icon size={44} />}</div>
+                  }}>
+                  {r.img ? (
+                    <Image src={r.img} alt={r.alt} fill sizes="(max-width: 768px) 50vw, 300px" style={{ objectFit: "cover" }} />
+                  ) : (
+                    <r.Icon size={44} />
+                  )}
+                </div>
                 <div style={{ padding: "14px" }}>
                   <span style={{ display: "inline-block", background: r.badgeColor + "18", color: r.badgeColor, fontSize: "10px", fontWeight: "700", textTransform: "uppercase", padding: "3px 7px", borderRadius: "4px", marginBottom: "6px" }}>{r.category}</span>
                   <h3 style={{ fontFamily: "var(--font-poetsen), \"Poetsen One\", Georgia, serif", fontSize: "14px", fontWeight: "700", color: "#111827", margin: "0 0 8px 0", lineHeight: "1.3" }}>{r.name}</h3>

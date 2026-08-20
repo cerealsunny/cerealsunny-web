@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { recipes } from "@/data/recipes";
 
 export default function RecetasCatalog() {
@@ -13,12 +14,14 @@ export default function RecetasCatalog() {
         return (
           <div key={r.name} style={{ background: "#fff", borderRadius: "14px", overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: "1px solid #F0F0F0" }}>
             <div style={{ position: "relative", aspectRatio: "4 / 3", overflow: "hidden" }}>
-              <div style={{
-                position: "absolute", inset: "0",
-                background: r.img
-                  ? `url('${r.img}') center/cover no-repeat`
-                  : `linear-gradient(155deg, ${r.badgeColor} 0%, #0a1428 130%)`,
-              }} />
+              {r.img ? (
+                <Image src={r.img} alt={r.alt} fill sizes="(max-width: 768px) 100vw, 360px" style={{ objectFit: "cover" }} />
+              ) : (
+                <div style={{
+                  position: "absolute", inset: "0",
+                  background: `linear-gradient(155deg, ${r.badgeColor} 0%, #0a1428 130%)`,
+                }} />
+              )}
               {!r.img && (
                 <div style={{ position: "absolute", top: "20px", right: "18px", color: "rgba(255,255,255,0.18)" }}>
                   <r.Icon size={80} />

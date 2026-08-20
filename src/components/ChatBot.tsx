@@ -67,7 +67,7 @@ export default function ChatBot() {
           width: 56,
           height: 56,
           borderRadius: "50%",
-          background: "#39a4b4",
+          background: "#1f7684",
           border: "none",
           cursor: "pointer",
           display: "flex",
@@ -112,7 +112,7 @@ export default function ChatBot() {
         >
           <div
             style={{
-              background: "#39a4b4",
+              background: "#1f7684",
               padding: "14px 16px",
               display: "flex",
               alignItems: "center",
@@ -179,7 +179,7 @@ export default function ChatBot() {
                     lineHeight: 1.5,
                     ...(msg.role === "user"
                       ? {
-                          background: "#39a4b4",
+                          background: "#1f7684",
                           color: "white",
                           borderBottomRightRadius: 4,
                           marginLeft: "auto",
@@ -202,8 +202,8 @@ export default function ChatBot() {
                         onClick={() => sendMessage(chip)}
                         style={{
                           background: "white",
-                          border: "0.5px solid #39a4b4",
-                          color: "#39a4b4",
+                          border: "0.5px solid #1f7684",
+                          color: "#1f7684",
                           fontSize: 11,
                           padding: "4px 10px",
                           borderRadius: 20,
@@ -240,7 +240,7 @@ export default function ChatBot() {
                       width: 6,
                       height: 6,
                       borderRadius: "50%",
-                      background: "#39a4b4",
+                      background: "#1f7684",
                       display: "inline-block",
                       animation: `bounce 1.2s ease-in-out ${n * 0.2}s infinite`,
                     }}
