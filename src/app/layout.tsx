@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Cereal Sunny",
   description: "Fabricante de cereales de alta calidad para distribuidores.",
+  // noindex intencional: este dominio es el staging de Vercel, no el dominio final.
+  // Cambiar a index:true cuando cerealsunny.com esté conectado (ver cutover en SITE_URL).
   robots: {
     index: false,
     follow: true,

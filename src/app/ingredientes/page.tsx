@@ -5,7 +5,10 @@ import { IconCorn, IconSugarCrystal, IconCacao, IconWheat } from "@/components/I
 export const metadata = {
   title: "Ingredientes · Cereal Sunny",
   description: "Los ingredientes reales detrás de la línea de cereales Cereal Sunny.",
-  alternates: { canonical: "/ingredientes" },
+  alternates: {
+    canonical: "/ingredientes",
+    languages: { "es-VE": "/ingredientes", es: "/ingredientes", "x-default": "/ingredientes" },
+  },
 };
 
 const ingredients = [

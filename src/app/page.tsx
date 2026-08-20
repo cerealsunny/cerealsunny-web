@@ -15,7 +15,10 @@ export const metadata = {
   title: "Cereal Sunny — Cereales de Maíz Natural para tu Familia | Venezuela",
   description:
     "Cereal Sunny: fabricante venezolano de cereales de maíz laminado — Sunny Flakes, Sunny Sugar y Sunny Choco Flakes. Venta exclusiva a distribuidores mayoristas en Venezuela.",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "es-VE": "/", es: "/", "x-default": "/" },
+  },
   openGraph: {
     title: "Cereal Sunny — Cereales de Maíz Natural para tu Familia | Venezuela",
     description:

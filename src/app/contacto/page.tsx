@@ -7,7 +7,10 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = {
   title: "Contacto — Cereal Sunny | Distribuidores y Consultas",
   description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",
-  alternates: { canonical: "/contacto" },
+  alternates: {
+    canonical: "/contacto",
+    languages: { "es-VE": "/contacto", es: "/contacto", "x-default": "/contacto" },
+  },
   openGraph: {
     title: "Contacto — Cereal Sunny | Distribuidores y Consultas",
     description: "Contacta a Cereal Sunny para distribución mayorista de cereales.",

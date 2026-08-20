@@ -5,7 +5,10 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = {
   title: "Sobre Sunny — Fabricantes de Cereales de Maíz en Venezuela",
   description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",
-  alternates: { canonical: "/nosotros" },
+  alternates: {
+    canonical: "/nosotros",
+    languages: { "es-VE": "/nosotros", es: "/nosotros", "x-default": "/nosotros" },
+  },
   openGraph: {
     title: "Sobre Sunny — Fabricantes de Cereales de Maíz en Venezuela",
     description: "Cereal Sunny, fabricante venezolano de cereales para distribuidores mayoristas.",

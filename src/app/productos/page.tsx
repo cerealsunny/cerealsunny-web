@@ -7,7 +7,10 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = {
   title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes | Cereal Sunny",
   description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
-  alternates: { canonical: "/productos" },
+  alternates: {
+    canonical: "/productos",
+    languages: { "es-VE": "/productos", es: "/productos", "x-default": "/productos" },
+  },
   openGraph: {
     title: "Nuestros Cereales — Sunny Flakes, Sugar y Choco Flakes | Cereal Sunny",
     description: "Línea de cereales Cereal Sunny para distribuidores mayoristas.",
@@ -22,6 +25,7 @@ const productSchemas = products.map((p) => ({
   description: p.description,
   image: p.img ? `${SITE_URL}${p.img}` : undefined,
   brand: { "@type": "Brand", name: "Cereal Sunny" },
+  manufacturer: { "@type": "Organization", name: "Cereal Sunny" },
   category: "Cereales de desayuno",
   countryOfOrigin: { "@type": "Country", name: "Venezuela" },
 }));

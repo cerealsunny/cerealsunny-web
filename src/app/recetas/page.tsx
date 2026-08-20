@@ -7,7 +7,10 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = {
   title: "Recetas con Cereal Sunny — Ideas Fáciles para tu Familia",
   description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
-  alternates: { canonical: "/recetas" },
+  alternates: {
+    canonical: "/recetas",
+    languages: { "es-VE": "/recetas", es: "/recetas", "x-default": "/recetas" },
+  },
   openGraph: {
     title: "Recetas con Cereal Sunny — Ideas Fáciles para tu Familia",
     description: "Recetas fáciles de preparar con la línea de cereales Cereal Sunny.",
